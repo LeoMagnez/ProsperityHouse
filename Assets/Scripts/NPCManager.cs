@@ -26,7 +26,7 @@ public class NPCManager : MonoBehaviour
     private int npcCurrent;
 
     [SerializeField]
-    private ItemTemplate[] itemList;
+    private ItemTemplate[] npcCurrentItems;
     private int itemCurrent;
 
     // Start is called before the first frame update
@@ -34,7 +34,8 @@ public class NPCManager : MonoBehaviour
     {
         npcCurrent = 0;
         itemCurrent = 0;
-
+        npcCurrentItems = npcList[0].searchedItems;
+        itemCurrent = Random.Range(0, npcCurrentItems.Length);
         ReloadNPC();
         ReloadItems();
     }
@@ -44,16 +45,20 @@ public class NPCManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.H) && npcCurrent == 1)
         {
             npcCurrent = 0;
-            itemCurrent = 0;
+            npcCurrentItems = npcList[npcCurrent].searchedItems;
+            itemCurrent = Random.Range(0, npcCurrentItems.Length);
+            Debug.Log(itemCurrent);
             ReloadNPC();
             ReloadItems();
-            Debug.Log("Madeline");
+            Debug.Log("Blanche");
         }
 
         if(Input.GetKeyDown(KeyCode.D) && npcCurrent == 0)
         {
             npcCurrent = 1;
-            itemCurrent = 1;
+            npcCurrentItems = npcList[npcCurrent].searchedItems;
+            Debug.Log(npcList[0].searchedItems);
+            itemCurrent = Random.Range(0, npcCurrentItems.Length);
             ReloadNPC();
             ReloadItems();
             Debug.Log("Hildebert");
@@ -71,7 +76,7 @@ public class NPCManager : MonoBehaviour
 
     public void ReloadItems()
     {
-        item = itemList[itemCurrent];
+        item = npcCurrentItems[itemCurrent];
         itemNameText.text = item.itemName;
         itemBuyPriceText.text = item.itemBuyPrice.ToString();
         itemArtwork.sprite = item.itemArtwork;

@@ -1534,11 +1534,22 @@ MonoBehaviour:
   itemBuyPriceText: {fileID: 156359611}
   itemArtwork: {fileID: 1076527672}
   npcList:
-  - {fileID: 11400000, guid: 94c5edd18d89b2346a243bd3746b5536, type: 2}
+  - {fileID: 11400000, guid: 7d2e64faad7b41c408ab645b299a2b96, type: 2}
   - {fileID: 11400000, guid: ff1db520971839a4f8de9be418940c6d, type: 2}
   itemList:
+  - {fileID: 11400000, guid: e7e6178a695cfa647a17b3f094075a5f, type: 2}
+  - {fileID: 11400000, guid: 7c5df70efee0ca34a9494683e43bbe40, type: 2}
   - {fileID: 11400000, guid: c447d7c38bc741e4da5593a54895e96b, type: 2}
+  - {fileID: 11400000, guid: 76fbcc14d7b49204d9218011055863f2, type: 2}
+  - {fileID: 11400000, guid: 6d54552edd4bcd94f891afb88e9ee6fa, type: 2}
+  - {fileID: 11400000, guid: bd5c3403924c0f7459ca9e5b39485a8a, type: 2}
+  - {fileID: 11400000, guid: c737bbcea25af9f47a048291dd97674c, type: 2}
+  - {fileID: 11400000, guid: bfac94fa95c4e534387e77e06c0faea9, type: 2}
+  - {fileID: 11400000, guid: 54153e5aa40e91943b19094ae2a0f3f5, type: 2}
   - {fileID: 11400000, guid: beaa9c7e7c95d9141bb492f4b1f9aee7, type: 2}
+  - {fileID: 11400000, guid: 3c0ba7f64c85d45479976000cfd462b9, type: 2}
+  - {fileID: 11400000, guid: 4eb4ba622e13fbd4594d81326283a06b, type: 2}
+  - {fileID: 11400000, guid: 658a74f6bccd53a4abd92b0a5923a8f3, type: 2}
 --- !u!1 &603776552
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d0b117fb6529374799bb654f2af9a1b, type: 3}
-  m_Name: NPC_Hildebert
+  m_Name: NPC_Blanche
   m_EditorClassIdentifier: 
-  npcName: Hildebert
-  npcJob: Doctor
-  npcDialogue: "On est l\xE0."
+  npcName: Blanche
+  npcJob: Innkeeper
+  npcDialogue: 
   searchedItems:
-  - {fileID: 11400000, guid: 54153e5aa40e91943b19094ae2a0f3f5, type: 2}
-  - {fileID: 11400000, guid: bfac94fa95c4e534387e77e06c0faea9, type: 2}
+  - {fileID: 11400000, guid: 76fbcc14d7b49204d9218011055863f2, type: 2}
+  - {fileID: 11400000, guid: c447d7c38bc741e4da5593a54895e96b, type: 2}
   npcArtwork: {fileID: 0}
