@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Gamemanager : MonoBehaviour
 {
+    public int money = 500;
+    public TextMeshProUGUI moneyText;
     public int phase;
 
     [Header("NPC Spawns")]
@@ -27,7 +30,8 @@ public class Gamemanager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        moneyText.text = money.ToString();
+        CurrencyModify();
     }
 
     public PNJTemplate[] NPCSpawner()
@@ -53,5 +57,22 @@ public class Gamemanager : MonoBehaviour
     public void NextPhase()
     {
         phase++;
+    }
+
+    public void CurrencyModify()
+    {
+        if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            money = money + 500;
+        }
+        if(Input.GetKeyDown(KeyCode.DownArrow) && money >= 0)
+        {
+            money = money - 500;
+        }
+        if(Input.GetKeyDown(KeyCode.DownArrow) && money <= 0)
+        {
+            money = 0;
+            Debug.Log("T'as plus d'argent, arrête.");
+        }
     }
 }
