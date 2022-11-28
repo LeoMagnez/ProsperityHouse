@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Item_Bread
   m_EditorClassIdentifier: 
   itemName: Bread
-  itemArtwork: {fileID: 21300000, guid: 73d124bf77e463c45942d14136745d9f, type: 3}
+  itemArtwork: {fileID: 21300000, guid: 7cc2aa38508cd344ea166948279f8240, type: 3}
   itemBuyPrice: 10
