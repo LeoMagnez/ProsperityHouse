@@ -17,5 +17,5 @@ MonoBehaviour:
   npcDialogue: 
   searchedItems:
   - {fileID: 11400000, guid: c447d7c38bc741e4da5593a54895e96b, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: c737bbcea25af9f47a048291dd97674c, type: 2}
   npcArtwork: {fileID: 0}

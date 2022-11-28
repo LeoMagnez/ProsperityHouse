@@ -11,6 +11,8 @@ public class Siding : MonoBehaviour
 
     public float lerpSpeed = 1.0f;
     bool open;
+
+    public NPCManager npcManager;
     
 
     void Update()
@@ -29,5 +31,6 @@ public class Siding : MonoBehaviour
     public void ButtonClick()
     {
         open = !open;
+        npcManager.NewNPCTrade();
     }
 }

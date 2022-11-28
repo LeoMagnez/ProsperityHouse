@@ -1536,20 +1536,8 @@ MonoBehaviour:
   npcList:
   - {fileID: 11400000, guid: 7d2e64faad7b41c408ab645b299a2b96, type: 2}
   - {fileID: 11400000, guid: ff1db520971839a4f8de9be418940c6d, type: 2}
-  itemList:
-  - {fileID: 11400000, guid: e7e6178a695cfa647a17b3f094075a5f, type: 2}
-  - {fileID: 11400000, guid: 7c5df70efee0ca34a9494683e43bbe40, type: 2}
-  - {fileID: 11400000, guid: c447d7c38bc741e4da5593a54895e96b, type: 2}
-  - {fileID: 11400000, guid: 76fbcc14d7b49204d9218011055863f2, type: 2}
-  - {fileID: 11400000, guid: 6d54552edd4bcd94f891afb88e9ee6fa, type: 2}
-  - {fileID: 11400000, guid: bd5c3403924c0f7459ca9e5b39485a8a, type: 2}
-  - {fileID: 11400000, guid: c737bbcea25af9f47a048291dd97674c, type: 2}
-  - {fileID: 11400000, guid: bfac94fa95c4e534387e77e06c0faea9, type: 2}
-  - {fileID: 11400000, guid: 54153e5aa40e91943b19094ae2a0f3f5, type: 2}
-  - {fileID: 11400000, guid: beaa9c7e7c95d9141bb492f4b1f9aee7, type: 2}
-  - {fileID: 11400000, guid: 3c0ba7f64c85d45479976000cfd462b9, type: 2}
-  - {fileID: 11400000, guid: 4eb4ba622e13fbd4594d81326283a06b, type: 2}
-  - {fileID: 11400000, guid: 658a74f6bccd53a4abd92b0a5923a8f3, type: 2}
+  npcCurrentItems: []
+  gm: {fileID: 1675498555}
 --- !u!1 &603776552
 GameObject:
   m_ObjectHideFlags: 0
@@ -2431,6 +2419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 840311805}
+  - component: {fileID: 840311806}
   m_Layer: 0
   m_Name: MainScreen
   m_TagString: Untagged
@@ -2463,6 +2452,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &840311806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840311804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62e5db67feac7254c8f7fd08e081b220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 1675498555}
 --- !u!1 &964477436
 GameObject:
   m_ObjectHideFlags: 0
@@ -3350,7 +3352,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1651727618}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 840311806}
+        m_TargetAssemblyTypeName: UpgradeHouse, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1651727618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3398,6 +3412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1675498554}
+  - component: {fileID: 1675498555}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3420,6 +3435,46 @@ Transform:
   m_Father: {fileID: 837744907}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1675498555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675498553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639ac371a071da748a10294a82b6e120, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phase: 0
+  firstPhase:
+  - {fileID: 11400000, guid: fbe87934644423b4eacc8d09824b2ee5, type: 2}
+  - {fileID: 11400000, guid: 779ca6581f3886a4d9176b9f613008e0, type: 2}
+  - {fileID: 11400000, guid: 7d2e64faad7b41c408ab645b299a2b96, type: 2}
+  - {fileID: 11400000, guid: 263f7b0b43b88f149aea23427272df63, type: 2}
+  secondPhase:
+  - {fileID: 11400000, guid: 779ca6581f3886a4d9176b9f613008e0, type: 2}
+  - {fileID: 11400000, guid: 7d2e64faad7b41c408ab645b299a2b96, type: 2}
+  - {fileID: 11400000, guid: 263f7b0b43b88f149aea23427272df63, type: 2}
+  - {fileID: 11400000, guid: 8c8e062ed8343c544a9f55dc13554dbd, type: 2}
+  - {fileID: 11400000, guid: 1b7dd53813ab6ed46a9256a76feed2b5, type: 2}
+  thirdPhase:
+  - {fileID: 11400000, guid: 263f7b0b43b88f149aea23427272df63, type: 2}
+  - {fileID: 11400000, guid: 8c8e062ed8343c544a9f55dc13554dbd, type: 2}
+  - {fileID: 11400000, guid: 1b7dd53813ab6ed46a9256a76feed2b5, type: 2}
+  - {fileID: 11400000, guid: edb1312d99594b944bcfe1a68063271f, type: 2}
+  - {fileID: 11400000, guid: 34184a04116b55f44a0cba2a044ec86b, type: 2}
+  - {fileID: 11400000, guid: 4d9c8d57b6c892645a31bb84fe3ee22d, type: 2}
+  - {fileID: 11400000, guid: ff1db520971839a4f8de9be418940c6d, type: 2}
+  fourthPhase:
+  - {fileID: 11400000, guid: 8c8e062ed8343c544a9f55dc13554dbd, type: 2}
+  - {fileID: 11400000, guid: 1b7dd53813ab6ed46a9256a76feed2b5, type: 2}
+  - {fileID: 11400000, guid: edb1312d99594b944bcfe1a68063271f, type: 2}
+  - {fileID: 11400000, guid: 34184a04116b55f44a0cba2a044ec86b, type: 2}
+  - {fileID: 11400000, guid: 4d9c8d57b6c892645a31bb84fe3ee22d, type: 2}
+  - {fileID: 11400000, guid: ff1db520971839a4f8de9be418940c6d, type: 2}
+  endOfGame: 0
 --- !u!1 &1775688323
 GameObject:
   m_ObjectHideFlags: 0
@@ -3953,6 +4008,7 @@ MonoBehaviour:
   startPosX: {x: -775, y: 0, z: 0}
   endPosX: {x: 0, y: 0, z: 0}
   lerpSpeed: 5
+  npcManager: {fileID: 450188667}
 --- !u!1 &1990611992
 GameObject:
   m_ObjectHideFlags: 0

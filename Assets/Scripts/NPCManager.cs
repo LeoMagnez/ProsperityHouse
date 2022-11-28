@@ -29,11 +29,14 @@ public class NPCManager : MonoBehaviour
     private ItemTemplate[] npcCurrentItems;
     private int itemCurrent;
 
+    public Gamemanager gm;
+
     // Start is called before the first frame update
     void Start()
     {
         npcCurrent = 0;
         itemCurrent = 0;
+        npcList = gm.NPCSpawner();
         npcCurrentItems = npcList[0].searchedItems;
         itemCurrent = Random.Range(0, npcCurrentItems.Length);
         ReloadNPC();
@@ -42,27 +45,7 @@ public class NPCManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.H) && npcCurrent == 1)
-        {
-            npcCurrent = 0;
-            npcCurrentItems = npcList[npcCurrent].searchedItems;
-            itemCurrent = Random.Range(0, npcCurrentItems.Length);
-            Debug.Log(itemCurrent);
-            ReloadNPC();
-            ReloadItems();
-            Debug.Log("Blanche");
-        }
 
-        if(Input.GetKeyDown(KeyCode.D) && npcCurrent == 0)
-        {
-            npcCurrent = 1;
-            npcCurrentItems = npcList[npcCurrent].searchedItems;
-            Debug.Log(npcList[0].searchedItems);
-            itemCurrent = Random.Range(0, npcCurrentItems.Length);
-            ReloadNPC();
-            ReloadItems();
-            Debug.Log("Hildebert");
-        }
     }
 
     public void ReloadNPC()
@@ -80,6 +63,24 @@ public class NPCManager : MonoBehaviour
         itemNameText.text = item.itemName;
         itemBuyPriceText.text = item.itemBuyPrice.ToString();
         itemArtwork.sprite = item.itemArtwork;
+    }
+
+    public void NewNPCTrade()
+    {
+        npcList = gm.NPCSpawner();
+        if (npcCurrent < npcList.Length - 1)
+        {
+            npcCurrent += 1;
+        }
+        else
+        {
+            npcCurrent = 0;
+        }
+        npcCurrentItems = npcList[npcCurrent].searchedItems;
+        itemCurrent = Random.Range(0, npcCurrentItems.Length);
+        Debug.Log(itemCurrent);
+        ReloadNPC();
+        ReloadItems();
     }
 
 }
