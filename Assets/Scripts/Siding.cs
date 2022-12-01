@@ -1,19 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
-[CreateAssetMenu(fileName = "ItemTemplate", menuName = "ProsperityHouse/Item Template", order = 1)]
-public class ItemTemplate : ScriptableObject
+public class Siding : MonoBehaviour
 {
-    public string itemName;
-    public Sprite itemArtwork;
-    public float itemBuyPrice;
+    public RectTransform pos;
+
+    public Vector3 startPosX;
+    public Vector3 endPosX;
+
+    public float lerpSpeed = 1.0f;
+    bool open;
+
+    public NPCManager npcManager;
+    
+
+    void Update()
+    {
+        if(open)
+        {
+            pos.anchoredPosition = Vector3.Lerp(pos.anchoredPosition, endPosX, lerpSpeed * Time.deltaTime);
+        }
+        else
+        {
+            pos.anchoredPosition = Vector3.Lerp(pos.anchoredPosition, startPosX, lerpSpeed * Time.deltaTime);
+        }
+        
+    }
+
+    public void ButtonClick()
+    {
+        open = !open;
+
+        if(open)
+        {
+            npcManager.NewNPCTrade();
+        }
+            
+    }
 }
-
-
-
-
 
 
 

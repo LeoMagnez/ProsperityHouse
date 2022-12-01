@@ -19,7 +19,10 @@ public class NPCManager : MonoBehaviour
 
     public TextMeshProUGUI itemNameText;
     public TextMeshProUGUI itemBuyPriceText;
+    public TextMeshProUGUI itemMargin;
     public Image itemArtwork;
+    public float itemMarginMultiplier;
+    public float itemFinalValue;
 
     [SerializeField]
     private PNJTemplate[] npcList;
@@ -59,10 +62,13 @@ public class NPCManager : MonoBehaviour
 
     public void ReloadItems()
     {
+        itemMarginMultiplier = Random.Range(0.3f, 0.7f);
+        itemFinalValue = Mathf.FloorToInt(item.itemBuyPrice * itemMarginMultiplier);
         item = npcCurrentItems[itemCurrent];
         itemNameText.text = item.itemName;
         itemBuyPriceText.text = item.itemBuyPrice.ToString();
         itemArtwork.sprite = item.itemArtwork;
+        itemMargin.text = "+" + itemFinalValue;
     }
 
     public void NewNPCTrade()

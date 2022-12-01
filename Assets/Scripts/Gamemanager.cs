@@ -17,7 +17,8 @@ FUNCTIONS
 public class Gamemanager : MonoBehaviour
 {
     /* ============================ VARIABLES ============================*/
-    public int money = 500;
+    public NPCManager npcManager;
+    public float money = 500f;
     public TextMeshProUGUI moneyText;
     public int phase;
 
@@ -88,6 +89,11 @@ public class Gamemanager : MonoBehaviour
             money = 0;
             Debug.Log("T'as plus d'argent, arrête.");
         }
+    }
+
+    public void SellResearchedItem()
+    {
+        money += npcManager.item.itemBuyPrice + npcManager.itemFinalValue;
     }
 }
 
