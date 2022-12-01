@@ -44,6 +44,7 @@ public class NPCManager : MonoBehaviour
         itemCurrent = Random.Range(0, npcCurrentItems.Length);
         ReloadNPC();
         ReloadItems();
+        ReloadMargin();
     }
 
     void Update()
@@ -62,12 +63,17 @@ public class NPCManager : MonoBehaviour
 
     public void ReloadItems()
     {
-        itemMarginMultiplier = Random.Range(0.3f, 0.7f);
-        itemFinalValue = Mathf.FloorToInt(item.itemBuyPrice * itemMarginMultiplier);
         item = npcCurrentItems[itemCurrent];
         itemNameText.text = item.itemName;
         itemBuyPriceText.text = item.itemBuyPrice.ToString();
         itemArtwork.sprite = item.itemArtwork;
+        
+    }
+
+    public void ReloadMargin()
+    {
+        itemMarginMultiplier = Random.Range(0.15f, 0.3f);
+        itemFinalValue = Mathf.RoundToInt(item.itemBuyPrice * itemMarginMultiplier);
         itemMargin.text = "+" + itemFinalValue;
     }
 
@@ -87,6 +93,7 @@ public class NPCManager : MonoBehaviour
         Debug.Log(itemCurrent);
         ReloadNPC();
         ReloadItems();
+        ReloadMargin();
     }
 
 }

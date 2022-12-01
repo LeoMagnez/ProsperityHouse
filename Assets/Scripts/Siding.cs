@@ -36,6 +36,10 @@ public class Siding : MonoBehaviour
         {
             npcManager.NewNPCTrade();
         }
+        else
+        {
+            npcManager.ReloadMargin();
+        }
             
     }
 }

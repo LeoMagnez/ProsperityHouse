@@ -61,12 +61,13 @@ public class Gamemanager : MonoBehaviour
 
             case 2:
                 return thirdPhase;
+
             case 3:
                 return fourthPhase;
 
         }
         return firstPhase;
-
+        
     }
 
     public void NextPhase()
