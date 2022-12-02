@@ -16,11 +16,30 @@ FUNCTIONS
  */
 public class Gamemanager : MonoBehaviour
 {
+    #region Singleton
+    private static Gamemanager instance;
+    
+    // Méthode d'accès statique (point d'accès global)
+    public static Gamemanager Instance { get { return instance; } private set { instance = value; } }
+
+    void Awake()
+    {
+        if (instance != null && instance != this)
+            Destroy(gameObject);    // Suppression d'une instance précédente (sécurité...sécurité...)
+
+        instance = this;
+    }
+    #endregion
+
+
+
     /* ============================ VARIABLES ============================*/
     public NPCManager npcManager;
     public float money = 500f;
     public TextMeshProUGUI moneyText;
     public int phase;
+    public Item[] itemPrice;
+    public int currItemBuying;
 
     [Header("NPC Spawns")]
     public PNJTemplate[] firstPhase;
@@ -95,6 +114,12 @@ public class Gamemanager : MonoBehaviour
     public void SellResearchedItem()
     {
         money += npcManager.item.itemBuyPrice + npcManager.itemFinalValue;
+    }
+
+    public void BuyItemFromSeller(Item _item)
+    {
+        money -= _item.itemPrice;
+        Debug.Log("ouioui");
     }
 }
 

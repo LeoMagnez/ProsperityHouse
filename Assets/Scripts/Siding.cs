@@ -25,6 +25,11 @@ public class Siding : MonoBehaviour
         {
             pos.anchoredPosition = Vector3.Lerp(pos.anchoredPosition, startPosX, lerpSpeed * Time.deltaTime);
         }
+
+        if(Input.GetKey(KeyCode.G) && tag == "Seller")
+        {
+            open = !open;
+        }
         
     }
 
