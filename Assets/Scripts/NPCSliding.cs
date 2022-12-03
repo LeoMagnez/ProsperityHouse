@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Siding : MonoBehaviour
+public class NPCSliding : MonoBehaviour
 {
     public RectTransform pos;
 
@@ -13,6 +13,7 @@ public class Siding : MonoBehaviour
     bool open;
 
     public NPCManager npcManager;
+
     
 
     void Update()
@@ -24,11 +25,6 @@ public class Siding : MonoBehaviour
         else
         {
             pos.anchoredPosition = Vector3.Lerp(pos.anchoredPosition, startPosX, lerpSpeed * Time.deltaTime);
-        }
-
-        if(Input.GetKey(KeyCode.G) && tag == "Seller")
-        {
-            open = !open;
         }
         
     }

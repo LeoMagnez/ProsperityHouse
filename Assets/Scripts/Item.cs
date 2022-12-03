@@ -12,6 +12,6 @@ public class Item : MonoBehaviour
     {
         Gamemanager.Instance.BuyItemFromSeller(this);
 
-        Debug.Log("babar");
+        //Debug.Log("babar");
     }
 }

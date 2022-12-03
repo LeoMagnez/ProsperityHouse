@@ -10,12 +10,14 @@ using TMPro;
 
 /*============================ TABLE OF CONTENT ============================
  
+SINGLETON
 VARIABLES
 FUNCTIONS
 
  */
 public class Gamemanager : MonoBehaviour
 {
+    /* ============================ SINGLETON ============================*/
     #region Singleton
     private static Gamemanager instance;
     
@@ -34,12 +36,23 @@ public class Gamemanager : MonoBehaviour
 
 
     /* ============================ VARIABLES ============================*/
+    [Header("References")]
     public NPCManager npcManager;
+    
+
+    [Header("Currency")]
     public float money = 500f;
     public TextMeshProUGUI moneyText;
-    public int phase;
     public Item[] itemPrice;
-    public int currItemBuying;
+
+    [Header("Phase")]
+    public int phase;
+
+    [Header("Day/Night Cycle")]
+    public SellerSliding sellerPanelSliding;
+    public float timer;
+    public bool canStartTimer;
+
 
     [Header("NPC Spawns")]
     public PNJTemplate[] firstPhase;
@@ -66,6 +79,13 @@ public class Gamemanager : MonoBehaviour
     {
         moneyText.text = money.ToString();
         CurrencyModify();
+
+
+
+        SellerAppears();
+
+
+        
     }
 
     public PNJTemplate[] NPCSpawner()
@@ -119,7 +139,22 @@ public class Gamemanager : MonoBehaviour
     public void BuyItemFromSeller(Item _item)
     {
         money -= _item.itemPrice;
-        Debug.Log("ouioui");
+        //Debug.Log("ouioui");
+    }
+
+    public void SellerAppears()
+    {
+        if (canStartTimer)
+        {
+            timer -= 1f * Time.deltaTime;
+        }
+
+        if (timer <= 0f)
+        {
+            canStartTimer = false;
+            sellerPanelSliding.SellerPanelOpen();
+        }
+        
     }
 }
 
