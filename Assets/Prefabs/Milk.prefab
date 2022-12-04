@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec42a2d3ebf9284c9773ef722eba9bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrice: 20
+  itemPrice: 10
   template: {fileID: 11400000, guid: 6d54552edd4bcd94f891afb88e9ee6fa, type: 2}
 --- !u!1 &1924891784679514893
 GameObject:
@@ -430,7 +430,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 20
+  m_text: '10
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

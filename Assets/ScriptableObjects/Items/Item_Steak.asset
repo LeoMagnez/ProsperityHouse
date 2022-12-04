@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Steak
   itemArtwork: {fileID: 21300000, guid: d5c0379d363b3584aa871eb038a41350, type: 3}
-  itemBuyPrice: 10
+  itemBuyPrice: 15

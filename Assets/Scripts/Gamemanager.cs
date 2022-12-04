@@ -63,6 +63,12 @@ public class Gamemanager : MonoBehaviour
 
     public PNJTemplate[] fourthPhase;
 
+    [Header("Seller")]
+    public GameObject itemsFirstPhase;
+    public GameObject itemsSecondPhase;
+    public GameObject itemsThirdPhase;
+    public GameObject itemsFourthPhase;
+
     [Header("End Game")]
     public bool endOfGame;
 
@@ -83,6 +89,7 @@ public class Gamemanager : MonoBehaviour
 
 
         SellerAppears();
+        SellerItemsSpawner();
 
 
         
@@ -108,6 +115,43 @@ public class Gamemanager : MonoBehaviour
         return firstPhase;
         
     }
+
+    public void SellerItemsSpawner()
+    {
+        if(phase == 0)
+        {
+            itemsFirstPhase.SetActive(true);
+            itemsSecondPhase.SetActive(false);
+            itemsThirdPhase.SetActive(false);
+            itemsFourthPhase.SetActive(false);
+        }
+
+        if (phase == 1)
+        {
+            itemsFirstPhase.SetActive(true);
+            itemsSecondPhase.SetActive(true);
+            itemsThirdPhase.SetActive(false);
+            itemsFourthPhase.SetActive(false);
+        }
+
+        if (phase == 2)
+        {
+            itemsFirstPhase.SetActive(true);
+            itemsSecondPhase.SetActive(true);
+            itemsThirdPhase.SetActive(true);
+            itemsFourthPhase.SetActive(false);
+        }
+
+        if (phase == 3)
+        {
+            itemsFirstPhase.SetActive(true);
+            itemsSecondPhase.SetActive(true);
+            itemsThirdPhase.SetActive(true);
+            itemsFourthPhase.SetActive(true);
+        }
+    }
+
+    
 
     public void NextPhase()
     {

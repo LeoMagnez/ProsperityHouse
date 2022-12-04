@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec42a2d3ebf9284c9773ef722eba9bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrice: 300
+  itemPrice: 250
   template: {fileID: 11400000, guid: 4eb4ba622e13fbd4594d81326283a06b, type: 2}
 --- !u!1 &1654126699875105032
 GameObject:
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 300
+  m_text: 250
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

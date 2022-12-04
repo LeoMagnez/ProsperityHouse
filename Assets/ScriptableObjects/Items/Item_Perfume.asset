@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Perfume
   itemArtwork: {fileID: 21300000, guid: afd656c3573e61840a763737fd33350f, type: 3}
-  itemBuyPrice: 250
+  itemBuyPrice: 200
