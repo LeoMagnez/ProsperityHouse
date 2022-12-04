@@ -1398,7 +1398,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 1, g: 0.9671603, b: 0.740566, a: 1}
     m_PressedColor: {r: 0.5943396, g: 0.47295964, b: 0, a: 1}
     m_SelectedColor: {r: 1, g: 0.87771446, b: 0, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2269,7 +2269,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &627591166
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2554,11 +2554,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 1675498555}
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 718212960}
   dayColor: {r: 0, g: 0.654902, b: 1, a: 1}
   eveningColor: {r: 0.6415094, g: 0.19212285, b: 0, a: 1}
   nightColor: {r: 0, g: 0.10285484, b: 0.8679245, a: 1}
-  duration: 90
+  duration: 45
 --- !u!1 &732624311
 GameObject:
   m_ObjectHideFlags: 0
@@ -5501,10 +5501,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pos: {fileID: 1979227085}
+  button: {fileID: 327158889}
   startPosX: {x: -775, y: 0, z: 0}
   endPosX: {x: 0, y: 0, z: 0}
   lerpSpeed: 5
   npcManager: {fileID: 450188667}
+  gm: {fileID: 1675498555}
 --- !u!1 &1990611992
 GameObject:
   m_ObjectHideFlags: 0
@@ -5602,7 +5604,7 @@ GameObject:
   - component: {fileID: 2020778618}
   - component: {fileID: 2020778617}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: UpgradeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

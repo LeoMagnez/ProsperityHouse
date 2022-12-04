@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NPCSliding : MonoBehaviour
 {
     public RectTransform pos;
+    public Button button;
 
     public Vector3 startPosX;
     public Vector3 endPosX;
@@ -13,6 +15,7 @@ public class NPCSliding : MonoBehaviour
     bool open;
 
     public NPCManager npcManager;
+    public Gamemanager gm;
 
     
 
@@ -26,6 +29,11 @@ public class NPCSliding : MonoBehaviour
         {
             pos.anchoredPosition = Vector3.Lerp(pos.anchoredPosition, startPosX, lerpSpeed * Time.deltaTime);
         }
+
+        if(gm.timer <= 3f && !open)
+        {
+            button.interactable = false;
+        }
         
     }
 
@@ -35,10 +43,12 @@ public class NPCSliding : MonoBehaviour
 
         if(open)
         {
+            gm.canStartTimer = false;
             npcManager.NewNPCTrade();
         }
         else
         {
+            gm.canStartTimer = true;
             npcManager.ReloadMargin();
         }
             
