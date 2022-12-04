@@ -40,8 +40,9 @@ public class Gamemanager : MonoBehaviour
     #endregion
 
 
-
     /* ============================ VARIABLES ============================*/
+    #region VARIABLES
+
     [Header("References")]
     public NPCManager npcManager;
     
@@ -79,9 +80,11 @@ public class Gamemanager : MonoBehaviour
 
     [Header("End Game")]
     public bool endOfGame;
+    #endregion
 
-#region FUNCTIONS
     /*============================ FUNCTIONS ============================*/
+    #region FUNCTIONS
+
 
     // Start is called before the first frame update
     void Start()
@@ -106,8 +109,9 @@ public class Gamemanager : MonoBehaviour
         
     }
 
-    #region NPCs
     /*============================ NPCs ============================*/
+    #region NPCs
+
     public PNJTemplate[] NPCSpawner()
     {
         switch(phase)
@@ -130,8 +134,9 @@ public class Gamemanager : MonoBehaviour
     }
     #endregion
 
-    #region SELLER
     /*============================ SELLER ============================*/
+    #region SELLER
+
     public void SellerItemsSpawner()
     {
         if(phase == 0)
@@ -183,9 +188,10 @@ public class Gamemanager : MonoBehaviour
     }
     #endregion
 
+    /*============================ PHASE ============================*/
     #region PHASE
 
-    /*============================ PHASE ============================*/
+
 
     public void NextPhase()
     {
@@ -193,8 +199,9 @@ public class Gamemanager : MonoBehaviour
     }
     #endregion
 
-    #region MONEY
     /*============================ MONEY ============================*/
+    #region MONEY
+
     public void CurrencyModify()
     {
         if(Input.GetKeyDown(KeyCode.UpArrow))
