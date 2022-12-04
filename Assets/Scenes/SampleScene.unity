@@ -4808,6 +4808,8 @@ MonoBehaviour:
   - {fileID: 1436685361}
   - {fileID: 1003564129}
   - {fileID: 243714072}
+  upgradeText: {fileID: 2020778617}
+  upgradeCost: 0
   phase: 0
   sellerPanelSliding: {fileID: 67816702}
   timer: 90
@@ -5646,7 +5648,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Upgrade - 250
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

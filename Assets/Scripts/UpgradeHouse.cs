@@ -8,7 +8,16 @@ public class UpgradeHouse : MonoBehaviour
     
     public void ButtonClick()
     {
-        gm.NextPhase();
+        
+        if (gm.money > gm.upgradeCost)
+        {
+            gm.NextPhase();
+            gm.money -= gm.upgradeCost;
+        }
+        else
+        {
+            Debug.Log("Pas assez d'argent");
+        }
     }
 }
 

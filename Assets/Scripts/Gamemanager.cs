@@ -11,8 +11,14 @@ using TMPro;
 /*============================ TABLE OF CONTENT ============================
  
 SINGLETON
+
 VARIABLES
+
 FUNCTIONS
+    -NPCs
+    -SELLER
+    -PHASE
+    -MONEY
 
  */
 public class Gamemanager : MonoBehaviour
@@ -44,6 +50,8 @@ public class Gamemanager : MonoBehaviour
     public float money = 500f;
     public TextMeshProUGUI moneyText;
     public Item[] itemPrice;
+    public TextMeshProUGUI upgradeText;
+    public float upgradeCost;
 
     [Header("Phase")]
     public int phase;
@@ -72,6 +80,7 @@ public class Gamemanager : MonoBehaviour
     [Header("End Game")]
     public bool endOfGame;
 
+#region FUNCTIONS
     /*============================ FUNCTIONS ============================*/
 
     // Start is called before the first frame update
@@ -84,17 +93,21 @@ public class Gamemanager : MonoBehaviour
     void Update()
     {
         moneyText.text = money.ToString();
+        upgradeText.text = "Upgrade - " + upgradeCost.ToString();
         CurrencyModify();
 
 
 
         SellerAppears();
         SellerItemsSpawner();
+        UpgradeCost();
 
 
         
     }
 
+    #region NPCs
+    /*============================ NPCs ============================*/
     public PNJTemplate[] NPCSpawner()
     {
         switch(phase)
@@ -115,7 +128,10 @@ public class Gamemanager : MonoBehaviour
         return firstPhase;
         
     }
+    #endregion
 
+    #region SELLER
+    /*============================ SELLER ============================*/
     public void SellerItemsSpawner()
     {
         if(phase == 0)
@@ -151,13 +167,34 @@ public class Gamemanager : MonoBehaviour
         }
     }
 
-    
+    public void SellerAppears()
+    {
+        if (canStartTimer)
+        {
+            timer -= 1f * Time.deltaTime;
+        }
+
+        if (timer <= 0f)
+        {
+            canStartTimer = false;
+            sellerPanelSliding.SellerPanelOpen();
+        }
+
+    }
+    #endregion
+
+    #region PHASE
+
+    /*============================ PHASE ============================*/
 
     public void NextPhase()
     {
         phase++;
     }
+    #endregion
 
+    #region MONEY
+    /*============================ MONEY ============================*/
     public void CurrencyModify()
     {
         if(Input.GetKeyDown(KeyCode.UpArrow))
@@ -186,20 +223,31 @@ public class Gamemanager : MonoBehaviour
         //Debug.Log("ouioui");
     }
 
-    public void SellerAppears()
+    public void UpgradeCost()
     {
-        if (canStartTimer)
+        if(phase == 0)
         {
-            timer -= 1f * Time.deltaTime;
+            upgradeCost = 250f;
         }
 
-        if (timer <= 0f)
+        if (phase == 1)
         {
-            canStartTimer = false;
-            sellerPanelSliding.SellerPanelOpen();
+            upgradeCost = 700f;
         }
-        
+
+        if (phase == 2)
+        {
+            upgradeCost = 1500f;
+        }
+
+        if (phase == 3)
+        {
+            upgradeCost = 4500f;
+        }
     }
+    #endregion
+
+    #endregion
 }
 
 
