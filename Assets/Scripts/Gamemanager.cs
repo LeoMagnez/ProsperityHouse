@@ -45,6 +45,7 @@ public class Gamemanager : MonoBehaviour
 
     [Header("References")]
     public NPCManager npcManager;
+    public InventoryManager inventoryManager;
     
 
     [Header("Currency")]
@@ -222,11 +223,14 @@ public class Gamemanager : MonoBehaviour
     public void SellResearchedItem()
     {
         money += npcManager.item.itemBuyPrice + npcManager.itemFinalValue;
+
     }
 
     public void BuyItemFromSeller(Item _item)
     {
         money -= _item.itemPrice;
+        inventoryManager.Add(_item);
+
         //Debug.Log("ouioui");
     }
 

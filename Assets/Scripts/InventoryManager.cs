@@ -4,16 +4,36 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public List<InventoryItems> inventory = new List<InventoryItems>();
+    private Dictionary<Item, InventoryItems> itemDictionnary = new Dictionary<Item, InventoryItems>();
+
+    public void Add(Item itemData)
     {
-        
+        //Do we have this item ? Yes we do, increase stack size
+        if(itemDictionnary.TryGetValue(itemData, out InventoryItems item))
+        {
+            item.AddToStack();
+        }
+        //No we don't, create it and store it in the dictionnary
+        else
+        {
+            InventoryItems newItem = new InventoryItems(itemData);
+            inventory.Add(newItem);
+            itemDictionnary.Add(itemData, newItem);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Remove(Item itemData)
     {
-        
+        if (itemDictionnary.TryGetValue(itemData, out InventoryItems item))
+        {
+            item.RemoveFromStack();
+            if(item.stackSize == 0)
+            {
+                inventory.Remove(item);
+                itemDictionnary.Remove(itemData);
+            }
+        }
     }
 }
 
