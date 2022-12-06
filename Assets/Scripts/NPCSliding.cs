@@ -34,6 +34,11 @@ public class NPCSliding : MonoBehaviour
         {
             button.interactable = false;
         }
+
+        if(gm.timer >= 3f && !open)
+        {
+            button.interactable = true;
+        }
         
     }
 

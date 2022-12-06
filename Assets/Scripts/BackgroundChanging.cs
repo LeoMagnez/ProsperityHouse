@@ -11,10 +11,11 @@ public class BackgroundChanging : MonoBehaviour
     public Color dayColor;
     public Color eveningColor;
     public Color nightColor;
+    public bool canChangeTime;
     public float duration; //durée en secondes
 
-    float dayLerpSpeed = 0f;
-    float nightLerpSpeed = 0f;
+    public float dayLerpSpeed = 0f;
+    public float nightLerpSpeed = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +27,11 @@ public class BackgroundChanging : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TimeOfDay();
+        if(canChangeTime)
+        {
+            TimeOfDay();
+        }
+
 
     }
 

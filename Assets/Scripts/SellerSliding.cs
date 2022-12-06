@@ -16,24 +16,30 @@ public class SellerSliding : MonoBehaviour
     public Gamemanager gm;
 
 
-
-    void Update()
+    public void Update()
     {
-
-
-
+        if(open)
+        {
+            gm.canStartTimer = false;
+            pos.anchoredPosition = Vector3.Lerp(pos.anchoredPosition, endPosX, lerpSpeed * Time.deltaTime);
+        }
+        else
+        {
+            gm.canStartTimer = true;
+            pos.anchoredPosition = Vector3.Lerp(pos.anchoredPosition, startPosX, lerpSpeed * Time.deltaTime);
+        }
     }
 
-    public void SellerPanelOpen()
+    public void ButtonClick()
     {
-
-        pos.anchoredPosition = Vector3.Lerp(pos.anchoredPosition, endPosX, lerpSpeed * Time.deltaTime);
-
-    }
-
-    public void SellerPanelClose()
-    {
-        pos.anchoredPosition = Vector3.Lerp(pos.anchoredPosition, startPosX, lerpSpeed * Time.deltaTime);
+        open = !open;
+        gm.backgroundChanging.canChangeTime = true;
+        if(gm.timer <= 0)
+        {
+            gm.timer = 90f;
+            gm.backgroundChanging.dayLerpSpeed = 0f;
+            gm.backgroundChanging.nightLerpSpeed = 0f;
+        }
     }
 }
 

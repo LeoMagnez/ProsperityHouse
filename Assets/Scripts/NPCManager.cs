@@ -29,8 +29,8 @@ public class NPCManager : MonoBehaviour
     private int npcCurrent;
 
     [SerializeField]
-    private ItemTemplate[] npcCurrentItems;
-    private int itemCurrent;
+    public ItemTemplate[] npcCurrentItems;
+    public int itemCurrent;
 
     public Gamemanager gm;
 

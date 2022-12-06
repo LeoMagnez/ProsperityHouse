@@ -46,6 +46,7 @@ public class Gamemanager : MonoBehaviour
     [Header("References")]
     public NPCManager npcManager;
     public InventoryManager inventoryManager;
+    public BackgroundChanging backgroundChanging;
     
 
     [Header("Currency")]
@@ -91,6 +92,7 @@ public class Gamemanager : MonoBehaviour
     void Start()
     {
         Application.targetFrameRate = 60;
+        sellerPanelSliding.open = true;
         phase = 0;
     }
 
@@ -100,7 +102,6 @@ public class Gamemanager : MonoBehaviour
         moneyText.text = money.ToString();
         upgradeText.text = "Upgrade - " + upgradeCost.ToString();
         CurrencyModify();
-
 
 
         SellerAppears();
@@ -184,9 +185,29 @@ public class Gamemanager : MonoBehaviour
         if (timer <= 0f)
         {
             canStartTimer = false;
-            sellerPanelSliding.SellerPanelOpen();
+            sellerPanelSliding.open = true;
         }
 
+    }
+
+    public void CanBuy()
+    {
+        if (money <= 0)
+        {
+            var tempItems = FindObjectsOfType<Item>();
+            for(int i = 0; i < tempItems.Length; i++)
+            {
+                tempItems[i].button.interactable = false;
+            }
+        }
+        else
+        {
+            var tempItems = FindObjectsOfType<Item>();
+            for (int i = 0; i < tempItems.Length; i++)
+            {
+                tempItems[i].button.interactable = true;
+            }
+        }
     }
     #endregion
 
@@ -223,14 +244,16 @@ public class Gamemanager : MonoBehaviour
 
     public void SellResearchedItem()
     {
+        Debug.Log("patate");
         money += npcManager.item.itemBuyPrice + npcManager.itemFinalValue;
-
+        
     }
 
     public void BuyItemFromSeller(Item _item)
     {
         money -= _item.itemPrice;
         inventoryManager.Add(_item);
+
 
         //Debug.Log("ouioui");
     }
