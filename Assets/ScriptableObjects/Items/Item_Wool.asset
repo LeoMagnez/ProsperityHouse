@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Item_Wool
   m_EditorClassIdentifier: 
   itemName: Wool
-  itemArtwork: {fileID: 21300000, guid: 9809a0678ae10784788cf08759c69192, type: 3}
+  itemArtwork: {fileID: 21300000, guid: b884426bc3291cb4fb9d21b65aa8f53c, type: 3}
   itemBuyPrice: 30

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Item_Beer
   m_EditorClassIdentifier: 
   itemName: Beer
-  itemArtwork: {fileID: 21300000, guid: 373b82e489a3ec240b82b25cf0791f86, type: 3}
+  itemArtwork: {fileID: 21300000, guid: bf646abd86270184a87bbd3dc45ad904, type: 3}
   itemBuyPrice: 12

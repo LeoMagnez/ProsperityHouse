@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Item_AnimalSkin
   m_EditorClassIdentifier: 
   itemName: Animal Skin
-  itemArtwork: {fileID: 21300000, guid: fed6cd1f383a6b44c8e61f2ffad2a233, type: 3}
+  itemArtwork: {fileID: 21300000, guid: f5510ddea21f28b448b8ad8e7fb6ad7f, type: 3}
   itemBuyPrice: 150
