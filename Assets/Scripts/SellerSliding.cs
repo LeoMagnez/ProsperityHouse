@@ -22,11 +22,13 @@ public class SellerSliding : MonoBehaviour
         {
             gm.canStartTimer = false;
             pos.anchoredPosition = Vector3.Lerp(pos.anchoredPosition, endPosX, lerpSpeed * Time.deltaTime);
+
         }
         else
         {
             gm.canStartTimer = true;
             pos.anchoredPosition = Vector3.Lerp(pos.anchoredPosition, startPosX, lerpSpeed * Time.deltaTime);
+
         }
     }
 

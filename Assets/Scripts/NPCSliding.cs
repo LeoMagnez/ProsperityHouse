@@ -12,7 +12,7 @@ public class NPCSliding : MonoBehaviour
     public Vector3 endPosX;
 
     public float lerpSpeed = 1.0f;
-    bool open;
+    public bool open;
 
     public NPCManager npcManager;
     public Gamemanager gm;

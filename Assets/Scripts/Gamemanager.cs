@@ -47,6 +47,7 @@ public class Gamemanager : MonoBehaviour
     public NPCManager npcManager;
     public InventoryManager inventoryManager;
     public BackgroundChanging backgroundChanging;
+    public NPCSliding npcSliding;
     
 
     [Header("Currency")]
@@ -58,6 +59,7 @@ public class Gamemanager : MonoBehaviour
 
     [Header("Phase")]
     public int phase;
+    public TextMeshProUGUI currentPhase;
 
     [Header("Day/Night Cycle")]
     public SellerSliding sellerPanelSliding;
@@ -101,6 +103,7 @@ public class Gamemanager : MonoBehaviour
     {
         moneyText.text = money.ToString();
         upgradeText.text = "Upgrade - " + upgradeCost.ToString();
+        currentPhase.text = (phase + 1).ToString();
         CurrencyModify();
 
 
@@ -219,6 +222,7 @@ public class Gamemanager : MonoBehaviour
     public void NextPhase()
     {
         phase++;
+        
     }
     #endregion
 
