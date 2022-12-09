@@ -1971,7 +1971,7 @@ MonoBehaviour:
   npcJobText: {fileID: 231645016}
   npcDialogueText: {fileID: 964477439}
   npcArtwork: {fileID: 732624314}
-  item: {fileID: 11400000, guid: beaa9c7e7c95d9141bb492f4b1f9aee7, type: 2}
+  searchedItemTemplate: {fileID: 0}
   itemNameText: {fileID: 1451067474}
   itemBuyPriceText: {fileID: 156359611}
   itemMargin: {fileID: 849102869}
@@ -1984,6 +1984,8 @@ MonoBehaviour:
   npcCurrentItems: []
   itemCurrent: 0
   gm: {fileID: 1675498555}
+  inventoryManager: {fileID: 1480661648}
+  sellButton: {fileID: 735759474}
 --- !u!1 &456263392
 GameObject:
   m_ObjectHideFlags: 0
@@ -2857,9 +2859,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1675498555}
-        m_TargetAssemblyTypeName: Gamemanager, Assembly-CSharp
-        m_MethodName: SellResearchedItem
+      - m_Target: {fileID: 450188667}
+        m_TargetAssemblyTypeName: NPCManager, Assembly-CSharp
+        m_MethodName: SellItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4429,6 +4431,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 199721718006129631}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1334253106 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1962838119212238330, guid: b11564107fda48845bf9903ff8b0be52,
+    type: 3}
+  m_PrefabInstance: {fileID: 199721718006129631}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec42a2d3ebf9284c9773ef722eba9bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1377289695
 GameObject:
   m_ObjectHideFlags: 0
@@ -6369,11 +6383,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1561303432}
     m_Modifications:
-    - target: {fileID: 199721719087805935, guid: b11564107fda48845bf9903ff8b0be52,
-        type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 199721719087805936, guid: b11564107fda48845bf9903ff8b0be52,
         type: 3}
       propertyPath: m_Pivot.x
@@ -6484,12 +6493,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Egg
       objectReference: {fileID: 0}
-    - target: {fileID: 3829778043435581715, guid: b11564107fda48845bf9903ff8b0be52,
+    - target: {fileID: 199721719229618894, guid: b11564107fda48845bf9903ff8b0be52,
         type: 3}
-      propertyPath: template
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 11400000, guid: e7e6178a695cfa647a17b3f094075a5f,
-        type: 2}
+      objectReference: {fileID: 1334253106}
+    - target: {fileID: 199721719229618894, guid: b11564107fda48845bf9903ff8b0be52,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnBuy
+      objectReference: {fileID: 0}
+    - target: {fileID: 199721719229618894, guid: b11564107fda48845bf9903ff8b0be52,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BuyItem, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b11564107fda48845bf9903ff8b0be52, type: 3}
 --- !u!1001 &583611938184566745
