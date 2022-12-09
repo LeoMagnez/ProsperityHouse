@@ -4,14 +4,14 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class InventoryItems
+public class InventoryItem
 {
-    public Item itemData;
+    public ItemTemplate itemData;
     public int stackSize;
 
-    public InventoryItems(Item item)
+    public InventoryItem(ItemTemplate _itemData)
     {
-        itemData = item;
+        itemData = _itemData;
         AddToStack();
     }
 

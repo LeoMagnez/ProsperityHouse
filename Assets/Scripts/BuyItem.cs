@@ -5,10 +5,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Item : MonoBehaviour
+public class BuyItem : MonoBehaviour
 {
     public Button button;
-    public int itemPrice;
 
     public ItemTemplate template;
 

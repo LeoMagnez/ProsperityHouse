@@ -15,7 +15,7 @@ public class NPCManager : MonoBehaviour
     public Image npcArtwork;
 
     [Header("Item searched")]
-    public ItemTemplate item;
+    public ItemTemplate searchedItemTemplate;
 
     public TextMeshProUGUI itemNameText;
     public TextMeshProUGUI itemBuyPriceText;
@@ -33,6 +33,8 @@ public class NPCManager : MonoBehaviour
     public int itemCurrent;
 
     public Gamemanager gm;
+    public InventoryManager inventoryManager;
+    public Button sellButton;
 
     // Start is called before the first frame update
     void Start()
@@ -63,17 +65,17 @@ public class NPCManager : MonoBehaviour
 
     public void ReloadItems()
     {
-        item = npcCurrentItems[itemCurrent];
-        itemNameText.text = item.itemName;
-        itemBuyPriceText.text = item.itemBuyPrice.ToString();
-        itemArtwork.sprite = item.itemArtwork;
+        searchedItemTemplate = npcCurrentItems[itemCurrent];
+        itemNameText.text = searchedItemTemplate.itemName;
+        itemBuyPriceText.text = searchedItemTemplate.itemSellingPrice.ToString();
+        itemArtwork.sprite = searchedItemTemplate.itemArtwork;
         
     }
 
     public void ReloadMargin()
     {
         itemMarginMultiplier = Random.Range(0.15f, 0.3f);
-        itemFinalValue = Mathf.RoundToInt(item.itemBuyPrice * itemMarginMultiplier);
+        itemFinalValue = Mathf.RoundToInt(searchedItemTemplate.itemSellingPrice * itemMarginMultiplier);
         itemMargin.text = "+" + itemFinalValue;
     }
 
@@ -90,11 +92,39 @@ public class NPCManager : MonoBehaviour
         }
         npcCurrentItems = npcList[npcCurrent].searchedItems;
         itemCurrent = Random.Range(0, npcCurrentItems.Length);
+        sellButton.interactable = true;
         Debug.Log(itemCurrent);
         ReloadNPC();
         ReloadItems();
         ReloadMargin();
     }
+
+
+    //-*-*--*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+    //           Vente d'item requis
+    //-*-*--*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+
+    public void SellItem()
+    {
+
+        //Items
+        if(inventoryManager.itemDictionnary.TryGetValue(searchedItemTemplate, out InventoryItem item))
+        {
+            gm.inventoryManager.Remove(searchedItemTemplate);
+            gm.money += searchedItemTemplate.itemSellingPrice + itemFinalValue;
+
+        }
+        else
+        {
+            Debug.Log("Vous ne possédez pas l'item");
+            sellButton.interactable = false;
+        }
+
+
+    }
+
+
+
 
 }
 

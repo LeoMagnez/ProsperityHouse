@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 199721719087805936}
   - component: {fileID: 199721719087805934}
   - component: {fileID: 199721719087805935}
-  - component: {fileID: 3829778043435581715}
+  - component: {fileID: 1962838119212238330}
   m_Layer: 0
   m_Name: Egg
   m_TagString: Untagged
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3829778043435581715
+--- !u!114 &1962838119212238330
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -312,8 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 199721719229618894}
-  itemPrice: 2
-  template: {fileID: 11400000, guid: c447d7c38bc741e4da5593a54895e96b, type: 2}
+  template: {fileID: 11400000, guid: e7e6178a695cfa647a17b3f094075a5f, type: 2}
 --- !u!1 &199721719109980003
 GameObject:
   m_ObjectHideFlags: 0
@@ -575,7 +574,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3829778043435581715}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Item, Assembly-CSharp
         m_MethodName: OnBuy
         m_Mode: 1

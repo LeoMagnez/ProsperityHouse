@@ -4,31 +4,31 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    public List<InventoryItems> inventory = new List<InventoryItems>();
-    private Dictionary<Item, InventoryItems> itemDictionnary = new Dictionary<Item, InventoryItems>();
+    public List<InventoryItem> inventory = new List<InventoryItem>();
+    public Dictionary<ItemTemplate, InventoryItem> itemDictionnary = new Dictionary<ItemTemplate, InventoryItem>();
 
-    public void Add(Item itemData)
+    public void Add(ItemTemplate itemData)
     {
         //Do we have this item ? Yes we do, increase stack size
-        if(itemDictionnary.TryGetValue(itemData, out InventoryItems item))
+        if(itemDictionnary.TryGetValue(itemData, out InventoryItem item))
         {
             item.AddToStack();
         }
         //No we don't, create it and store it in the dictionnary
         else
         {
-            InventoryItems newItem = new InventoryItems(itemData);
+            InventoryItem newItem = new InventoryItem(itemData);
             inventory.Add(newItem);
             itemDictionnary.Add(itemData, newItem);
         }
     }
 
-    public void Remove(Item itemData)
+    public void Remove(ItemTemplate itemData)
     {
-        if (itemDictionnary.TryGetValue(itemData, out InventoryItems item))
+        if (itemDictionnary.TryGetValue(itemData, out InventoryItem item))
         {
             item.RemoveFromStack();
-            if(item.stackSize == 0)
+            if(item.stackSize <= 0)
             {
                 inventory.Remove(item);
                 itemDictionnary.Remove(itemData);

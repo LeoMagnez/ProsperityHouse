@@ -8,7 +8,10 @@ public class ItemTemplate : ScriptableObject
 {
     public string itemName;
     public Sprite itemArtwork;
-    public float itemBuyPrice;
+    public float itemBuyingPrice;
+    public float itemSellingPrice;
+
+
 }
 
 
