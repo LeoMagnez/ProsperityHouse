@@ -48,8 +48,18 @@ public class NPCSliding : MonoBehaviour
 
         if(open)
         {
+            gm.counter += 1;
             gm.canStartTimer = false;
-            npcManager.NewNPCTrade();
+
+            if(gm.counter == 3)
+            {
+                npcManager.SpecialNPCTrade();
+            }
+            else
+            {
+                npcManager.NewNPCTrade();
+            }
+
         }
         else
         {

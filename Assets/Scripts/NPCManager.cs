@@ -24,6 +24,11 @@ public class NPCManager : MonoBehaviour
     public float itemMarginMultiplier;
     public float itemFinalValue;
 
+    [Header("Special NPCs")]
+    [SerializeField]
+    private PNJTemplate[] specialNPC;
+    private int specialNPCCurrent;
+
     [SerializeField]
     private PNJTemplate[] npcList;
     private int npcCurrent;
@@ -51,9 +56,17 @@ public class NPCManager : MonoBehaviour
 
     void Update()
     {
-
+        if(!inventoryManager.itemDictionnary.TryGetValue(searchedItemTemplate, out InventoryItem item))
+        {
+            sellButton.interactable = false;
+        }
+        else
+        {
+            sellButton.interactable = true;
+        }
     }
-
+    /*============================ Classic NPCs ============================*/
+    #region Classic NPCs
     public void ReloadNPC()
     {
         npc = npcList[npcCurrent];
@@ -92,13 +105,43 @@ public class NPCManager : MonoBehaviour
         }
         npcCurrentItems = npcList[npcCurrent].searchedItems;
         itemCurrent = Random.Range(0, npcCurrentItems.Length);
-        sellButton.interactable = true;
         Debug.Log(itemCurrent);
         ReloadNPC();
         ReloadItems();
         ReloadMargin();
     }
+    #endregion
 
+    /*============================ Special NPCs ============================*/
+    #region Special NPCs
+    
+    public void ReloadSpecialNPCs()
+    {
+        npc = specialNPC[specialNPCCurrent];
+        npcNameText.text = npc.npcName;
+        npcJobText.text = npc.npcJob;
+        npcDialogueText.text = npc.npcDialogue;
+        npcArtwork.sprite = npc.npcArtwork;
+    }
+    
+    public void SpecialNPCTrade()
+    {
+        specialNPC = gm.SpecialNPCSpawner();
+        if(specialNPCCurrent < specialNPC.Length - 1)
+        {
+            specialNPCCurrent += 1;
+        }
+        else
+        {
+            specialNPCCurrent = 0;
+        }
+        npcCurrentItems = specialNPC[specialNPCCurrent].searchedItems;
+        itemCurrent = Random.Range(0, npcCurrentItems.Length);
+        ReloadSpecialNPCs();
+        ReloadItems();
+        ReloadMargin();
+    }
+    #endregion
 
     //-*-*--*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
     //           Vente d'item requis
@@ -114,12 +157,6 @@ public class NPCManager : MonoBehaviour
             gm.money += searchedItemTemplate.itemSellingPrice + itemFinalValue;
 
         }
-        else
-        {
-            Debug.Log("Vous ne possédez pas l'item");
-            sellButton.interactable = false;
-        }
-
 
     }
 

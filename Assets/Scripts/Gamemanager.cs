@@ -68,6 +68,8 @@ public class Gamemanager : MonoBehaviour
 
 
     [Header("NPC Spawns")]
+    public int counter = 0;
+
     public PNJTemplate[] firstPhase;
 
     public PNJTemplate[] secondPhase;
@@ -75,6 +77,15 @@ public class Gamemanager : MonoBehaviour
     public PNJTemplate[] thirdPhase;
 
     public PNJTemplate[] fourthPhase;
+
+    [Header("Special NPCs")]
+    public PNJTemplate[] specialFirstPhase;
+
+    public PNJTemplate[] specialSecondPhase;
+
+    public PNJTemplate[] specialThirdPhase;
+
+    public PNJTemplate[] specialFourthPhase;
 
     [Header("Seller")]
     public GameObject itemsFirstPhase;
@@ -110,6 +121,7 @@ public class Gamemanager : MonoBehaviour
         SellerAppears();
         SellerItemsSpawner();
         UpgradeCost();
+        CanBuy();
 
 
         
@@ -137,6 +149,27 @@ public class Gamemanager : MonoBehaviour
         }
         return firstPhase;
         
+    }
+
+    public PNJTemplate[] SpecialNPCSpawner()
+    {
+        switch (phase)
+        {
+            case 0:
+                return specialFirstPhase;
+
+            case 1:
+                return specialSecondPhase;
+
+            case 2:
+                return specialThirdPhase;
+
+            case 3:
+                return specialFourthPhase;
+
+        }
+        return specialFirstPhase;
+
     }
     #endregion
 
@@ -222,6 +255,7 @@ public class Gamemanager : MonoBehaviour
     public void NextPhase()
     {
         phase++;
+        counter = 0;
         
     }
     #endregion
