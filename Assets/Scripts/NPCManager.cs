@@ -1,11 +1,26 @@
+/*============================ PROSPERITY HOUSE - NPC MANAGER ============================
+ 
+Created by LAGARDE Rosalie & MAGNEZ Léo - Copyright 2023 ETPA Toulouse, France
+
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+/*============================ TABLE OF CONTENT ============================
+ 
+VARIABLES
 
+FUNCTIONS
+    -CLASSIC NPCs
+    -SPECIAL NPCs
+    -SELL ITEM
+ */
 public class NPCManager : MonoBehaviour
 {
+    /* ============================ VARIABLES ============================*/
+    #region VARIABLES
     [Header("NPC Characteristics")]
     public PNJTemplate npc;
 
@@ -29,6 +44,10 @@ public class NPCManager : MonoBehaviour
     private PNJTemplate[] specialNPC;
     private int specialNPCCurrent;
 
+    [Header("Easter Egg")]
+    public PNJTemplate[] easterEggNPC;
+    private int easterEggNPCCurrent;
+
     [SerializeField]
     private PNJTemplate[] npcList;
     private int npcCurrent;
@@ -40,7 +59,11 @@ public class NPCManager : MonoBehaviour
     public Gamemanager gm;
     public InventoryManager inventoryManager;
     public Button sellButton;
+    #endregion
 
+
+    /* ============================ FUNCTIONS ============================*/
+    #region FUNCTIONS
     // Start is called before the first frame update
     void Start()
     {
@@ -65,7 +88,7 @@ public class NPCManager : MonoBehaviour
             sellButton.interactable = true;
         }
     }
-    /*============================ Classic NPCs ============================*/
+    /*============================ CLASSIC NPCs ============================*/
     #region Classic NPCs
     public void ReloadNPC()
     {
@@ -112,7 +135,7 @@ public class NPCManager : MonoBehaviour
     }
     #endregion
 
-    /*============================ Special NPCs ============================*/
+    /*============================ SPECIAL NPCs ============================*/
     #region Special NPCs
     
     public void ReloadSpecialNPCs()
@@ -141,12 +164,36 @@ public class NPCManager : MonoBehaviour
         ReloadItems();
         ReloadMargin();
     }
+
+    public void ReloadEasterEgg()
+    {
+        npc = easterEggNPC[easterEggNPCCurrent];
+        npcNameText.text = npc.npcName;
+        npcJobText.text = npc.npcJob;
+        npcDialogueText.text = npc.npcDialogue;
+        npcArtwork.sprite = npc.npcArtwork;
+    }
+
+    public void EasterEgg()
+    {
+        if(easterEggNPCCurrent < easterEggNPC.Length - 1)
+        {
+            easterEggNPCCurrent += 1;
+        }
+        else
+        {
+            easterEggNPCCurrent = 0;
+        }
+        npcCurrentItems = easterEggNPC[easterEggNPCCurrent].searchedItems;
+        itemCurrent = Random.Range(0, npcCurrentItems.Length);
+        ReloadEasterEgg();
+        ReloadItems();
+        ReloadMargin();
+    }
     #endregion
 
-    //-*-*--*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    //           Vente d'item requis
-    //-*-*--*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-
+    /*============================ SELL ITEM ============================*/
+    #region Sell Item
     public void SellItem()
     {
 
@@ -159,8 +206,9 @@ public class NPCManager : MonoBehaviour
         }
 
     }
+    #endregion
 
-
+    #endregion
 
 
 }

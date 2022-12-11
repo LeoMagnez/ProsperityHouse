@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Bread
   itemArtwork: {fileID: 21300000, guid: 7cc2aa38508cd344ea166948279f8240, type: 3}
   itemBuyingPrice: 5
-  itemSellingPrice: 8
+  itemSellingPrice: 10

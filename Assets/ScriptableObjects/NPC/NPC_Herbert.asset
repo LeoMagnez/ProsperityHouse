@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Herbert
   npcJob: Goldsmith
-  npcDialogue: 
+  npcDialogue: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at sem
+    consequat elit pretium interdum. Integer nec elementum est.
   searchedItems:
   - {fileID: 11400000, guid: 4eb4ba622e13fbd4594d81326283a06b, type: 2}
   - {fileID: 11400000, guid: 54153e5aa40e91943b19094ae2a0f3f5, type: 2}

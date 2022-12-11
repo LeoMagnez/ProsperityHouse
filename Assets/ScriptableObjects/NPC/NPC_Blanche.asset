@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Blanche
   npcJob: Innkeeper
-  npcDialogue: 
+  npcDialogue: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at sem
+    consequat elit pretium interdum. Integer nec elementum est.
   searchedItems:
   - {fileID: 11400000, guid: 76fbcc14d7b49204d9218011055863f2, type: 2}
   - {fileID: 11400000, guid: c447d7c38bc741e4da5593a54895e96b, type: 2}

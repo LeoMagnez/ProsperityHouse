@@ -54,7 +54,6 @@ public class Gamemanager : MonoBehaviour
     [Header("Currency")]
     public float money = 500f;
     public TextMeshProUGUI moneyText;
-    public BuyItem[] itemPrice;
     public TextMeshProUGUI upgradeText;
     public float upgradeCost;
     public Button upgradeButton;
@@ -125,6 +124,11 @@ public class Gamemanager : MonoBehaviour
         UpgradeCost();
         CanBuy();
         CanUpgrade();
+
+        if(money < 0)
+        {
+            money = 0;
+        }
 
 
         
@@ -231,21 +235,18 @@ public class Gamemanager : MonoBehaviour
 
     public void CanBuy()
     {
-        if (money <= 0)
+        var tempItems = FindObjectsOfType<BuyItem>();
+        for (int i = 0; i < tempItems.Length; i++)
         {
-            var tempItems = FindObjectsOfType<BuyItem>();
-            for(int i = 0; i < tempItems.Length; i++)
+            if(money < tempItems[i].template.itemBuyingPrice)
             {
                 tempItems[i].button.interactable = false;
             }
-        }
-        else
-        {
-            var tempItems = FindObjectsOfType<BuyItem>();
-            for (int i = 0; i < tempItems.Length; i++)
+            else
             {
                 tempItems[i].button.interactable = true;
             }
+
         }
     }
     #endregion
@@ -286,9 +287,11 @@ public class Gamemanager : MonoBehaviour
 
     public void BuyItemFromSeller(BuyItem _item)
     {
-        money -= _item.template.itemBuyingPrice;
-        inventoryManager.Add(_item.template);
-
+        if(money > _item.template.itemBuyingPrice)
+        {
+            money -= _item.template.itemBuyingPrice;
+            inventoryManager.Add(_item.template);
+        }
 
     }
 

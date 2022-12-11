@@ -15,4 +15,4 @@ MonoBehaviour:
   itemName: Egg
   itemArtwork: {fileID: 21300000, guid: 426070264af1a87428eb0bc7e0ce13df, type: 3}
   itemBuyingPrice: 2
-  itemSellingPrice: 5
+  itemSellingPrice: 8

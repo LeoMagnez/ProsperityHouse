@@ -16,6 +16,7 @@ public class NPCSliding : MonoBehaviour
 
     public NPCManager npcManager;
     public Gamemanager gm;
+    public int easterEgg;
 
     
 
@@ -50,10 +51,19 @@ public class NPCSliding : MonoBehaviour
         {
             gm.counter += 1;
             gm.canStartTimer = false;
+            easterEgg = Random.Range(0, 10000);
 
             if(gm.counter == 3)
             {
                 npcManager.SpecialNPCTrade();
+            }
+            else
+            {
+                npcManager.NewNPCTrade();
+            }
+            if(easterEgg == 2645)
+            {
+                npcManager.EasterEgg();
             }
             else
             {

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b117fb6529374799bb654f2af9a1b, type: 3}
   m_Name: NPC_Genievre
   m_EditorClassIdentifier: 
-  npcName: "Geni\xE8vre"
+  npcName: Genievre
   npcJob: Farmer
-  npcDialogue: 
+  npcDialogue: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at sem
+    consequat elit pretium interdum. Integer nec elementum est.
   searchedItems:
   - {fileID: 11400000, guid: e7e6178a695cfa647a17b3f094075a5f, type: 2}
   - {fileID: 11400000, guid: c447d7c38bc741e4da5593a54895e96b, type: 2}
-  npcArtwork: {fileID: 0}
+  npcArtwork: {fileID: 21300000, guid: 6ee48a59156c4684783c2bff01f062be, type: 3}

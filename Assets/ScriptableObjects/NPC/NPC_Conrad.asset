@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Conrad
   npcJob: Butcher
-  npcDialogue: 
+  npcDialogue: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at sem
+    consequat elit pretium interdum. Integer nec elementum est.
   searchedItems:
   - {fileID: 11400000, guid: 7c5df70efee0ca34a9494683e43bbe40, type: 2}
   npcArtwork: {fileID: 0}

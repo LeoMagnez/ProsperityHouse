@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Eulalie
   npcJob: Maid
-  npcDialogue: 
+  npcDialogue: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at sem
+    consequat elit pretium interdum. Integer nec elementum est.
   searchedItems:
   - {fileID: 11400000, guid: bd5c3403924c0f7459ca9e5b39485a8a, type: 2}
   - {fileID: 11400000, guid: c737bbcea25af9f47a048291dd97674c, type: 2}
