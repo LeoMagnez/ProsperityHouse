@@ -60,7 +60,10 @@ public class Gamemanager : MonoBehaviour
 
     [Header("Phase")]
     public int phase;
-    public TextMeshProUGUI currentPhase;
+    public GameObject firstHouse;
+    public GameObject secondHouse;
+    public GameObject thirdHouse;
+    public GameObject fourthHouse;
 
     [Header("Day/Night Cycle")]
     public SellerSliding sellerPanelSliding;
@@ -108,6 +111,10 @@ public class Gamemanager : MonoBehaviour
         Application.targetFrameRate = 60;
         sellerPanelSliding.open = true;
         phase = 0;
+        firstHouse.SetActive(true);
+        secondHouse.SetActive(false);
+        thirdHouse.SetActive(false);
+        fourthHouse.SetActive(false);
     }
 
     // Update is called once per frame
@@ -115,7 +122,6 @@ public class Gamemanager : MonoBehaviour
     {
         moneyText.text = money.ToString();
         upgradeText.text = "Upgrade - " + upgradeCost.ToString();
-        currentPhase.text = (phase + 1).ToString();
         CurrencyModify();
 
 
@@ -260,6 +266,35 @@ public class Gamemanager : MonoBehaviour
     {
         phase++;
         counter = 0;
+
+        switch (phase)
+        {
+            case 0:
+                firstHouse.SetActive(true);
+                secondHouse.SetActive(false);
+                thirdHouse.SetActive(false);
+                fourthHouse.SetActive(false);
+                break;
+            case 1:
+                firstHouse.SetActive(false);
+                secondHouse.SetActive(true);
+                thirdHouse.SetActive(false);
+                fourthHouse.SetActive(false);
+                break;
+            case 2:
+                firstHouse.SetActive(false);
+                secondHouse.SetActive(false);
+                thirdHouse.SetActive(true);
+                fourthHouse.SetActive(false);
+                break;
+            case 3:
+                firstHouse.SetActive(false);
+                secondHouse.SetActive(false);
+                thirdHouse.SetActive(false);
+                fourthHouse.SetActive(true);
+                break;
+
+        }
         
     }
     #endregion

@@ -57,11 +57,8 @@ public class NPCSliding : MonoBehaviour
             {
                 npcManager.SpecialNPCTrade();
             }
-            else
-            {
-                npcManager.NewNPCTrade();
-            }
-            if(easterEgg == 2645)
+
+            else if (easterEgg == 2645)
             {
                 npcManager.EasterEgg();
             }
@@ -69,6 +66,8 @@ public class NPCSliding : MonoBehaviour
             {
                 npcManager.NewNPCTrade();
             }
+
+
 
         }
         else
