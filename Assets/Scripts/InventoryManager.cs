@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    public static event Action<List<InventoryItem>> OnInventoryChange;
+
     public List<InventoryItem> inventory = new List<InventoryItem>();
     public Dictionary<ItemTemplate, InventoryItem> itemDictionnary = new Dictionary<ItemTemplate, InventoryItem>();
 
@@ -13,6 +16,7 @@ public class InventoryManager : MonoBehaviour
         if(itemDictionnary.TryGetValue(itemData, out InventoryItem item))
         {
             item.AddToStack();
+            OnInventoryChange?.Invoke(inventory);
         }
         //No we don't, create it and store it in the dictionnary
         else
@@ -20,6 +24,7 @@ public class InventoryManager : MonoBehaviour
             InventoryItem newItem = new InventoryItem(itemData);
             inventory.Add(newItem);
             itemDictionnary.Add(itemData, newItem);
+            OnInventoryChange?.Invoke(inventory);
         }
     }
 
@@ -33,6 +38,7 @@ public class InventoryManager : MonoBehaviour
                 inventory.Remove(item);
                 itemDictionnary.Remove(itemData);
             }
+            OnInventoryChange?.Invoke(inventory);
         }
     }
 }

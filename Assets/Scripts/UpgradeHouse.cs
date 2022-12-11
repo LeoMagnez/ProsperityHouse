@@ -9,7 +9,7 @@ public class UpgradeHouse : MonoBehaviour
     public void ButtonClick()
     {
         
-        if (gm.money > gm.upgradeCost)
+        if (gm.money >= gm.upgradeCost)
         {
             gm.NextPhase();
             gm.money -= gm.upgradeCost;

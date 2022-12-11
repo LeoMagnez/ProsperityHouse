@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 /*============================ TABLE OF CONTENT ============================
  
@@ -56,6 +57,7 @@ public class Gamemanager : MonoBehaviour
     public BuyItem[] itemPrice;
     public TextMeshProUGUI upgradeText;
     public float upgradeCost;
+    public Button upgradeButton;
 
     [Header("Phase")]
     public int phase;
@@ -122,6 +124,7 @@ public class Gamemanager : MonoBehaviour
         SellerItemsSpawner();
         UpgradeCost();
         CanBuy();
+        CanUpgrade();
 
 
         
@@ -309,6 +312,19 @@ public class Gamemanager : MonoBehaviour
         if (phase == 3)
         {
             upgradeCost = 4500f;
+        }
+
+    }
+
+    public void CanUpgrade()
+    {
+        if(money < upgradeCost)
+        {
+            upgradeButton.interactable = false;
+        }
+        else
+        {
+            upgradeButton.interactable = true;
         }
     }
     #endregion
