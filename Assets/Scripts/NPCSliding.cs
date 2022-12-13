@@ -24,10 +24,12 @@ public class NPCSliding : MonoBehaviour
     {
         if(open)
         {
+            gm.canStartTimer = false;
             pos.anchoredPosition = Vector3.Lerp(pos.anchoredPosition, endPosX, lerpSpeed * Time.deltaTime);
         }
         else
         {
+            gm.canStartTimer = true;
             pos.anchoredPosition = Vector3.Lerp(pos.anchoredPosition, startPosX, lerpSpeed * Time.deltaTime);
         }
 
@@ -40,6 +42,17 @@ public class NPCSliding : MonoBehaviour
         {
             button.interactable = true;
         }
+
+        if(!gm.isNotificationActive)
+        {
+            button.interactable = false;
+            gm.notification.SetActive(false);
+        }
+        if(gm.isNotificationActive)
+        {
+            button.interactable = true;
+            gm.notification.SetActive(true);
+        }
         
     }
 
@@ -50,7 +63,9 @@ public class NPCSliding : MonoBehaviour
         if(open)
         {
             gm.counter += 1;
+
             gm.canStartTimer = false;
+            gm.npcTimer = 10f;
             easterEgg = Random.Range(0, 10000);
 
             if(gm.counter == 3)
@@ -72,6 +87,7 @@ public class NPCSliding : MonoBehaviour
         }
         else
         {
+            gm.isNotificationActive = false;
             gm.canStartTimer = true;
             npcManager.ReloadMargin();
         }

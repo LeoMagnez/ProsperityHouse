@@ -87,6 +87,16 @@ public class NPCManager : MonoBehaviour
         {
             sellButton.interactable = true;
         }
+
+        if(gm.canStartTimer)
+        {
+            gm.npcTimer -= 1 * Time.deltaTime;
+        }
+
+        if(gm.npcTimer <= 0)
+        {
+            gm.isNotificationActive = true;
+        }
     }
     /*============================ CLASSIC NPCs ============================*/
     #region Classic NPCs

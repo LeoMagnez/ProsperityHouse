@@ -69,10 +69,13 @@ public class Gamemanager : MonoBehaviour
     public SellerSliding sellerPanelSliding;
     public float timer;
     public bool canStartTimer;
+    public GameObject notification;
+    public bool isNotificationActive;
 
 
     [Header("NPC Spawns")]
     public int counter = 0;
+    public float npcTimer;
 
     public PNJTemplate[] firstPhase;
 
@@ -184,6 +187,8 @@ public class Gamemanager : MonoBehaviour
         return specialFirstPhase;
 
     }
+
+
     #endregion
 
     /*============================ SELLER ============================*/

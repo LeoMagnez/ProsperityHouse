@@ -31,7 +31,11 @@ public class SellerSliding : MonoBehaviour
         }
         else
         {
-            gm.canStartTimer = true;
+            if(!gm.npcSliding.open)
+            {
+                gm.canStartTimer = true;
+            }
+
             pos.anchoredPosition = Vector3.Lerp(pos.anchoredPosition, startPosX, lerpSpeed * Time.deltaTime);
 
         }
