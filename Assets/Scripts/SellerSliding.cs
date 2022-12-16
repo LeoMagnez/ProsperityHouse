@@ -16,6 +16,7 @@ public class SellerSliding : MonoBehaviour
     public NPCManager npcManager;
     public Gamemanager gm;
     public TextMeshProUGUI dialogueText;
+    public TimeAccelerator adManager;
     public bool tutorial;
 
 
@@ -24,6 +25,7 @@ public class SellerSliding : MonoBehaviour
         if(open)
         {
             gm.canStartTimer = false;
+            gm.canStartNPCTimer = false;
             pos.anchoredPosition = Vector3.Lerp(pos.anchoredPosition, endPosX, lerpSpeed * Time.deltaTime);
             SellerDialogues();
             
@@ -34,6 +36,11 @@ public class SellerSliding : MonoBehaviour
             if(!gm.npcSliding.open)
             {
                 gm.canStartTimer = true;
+                gm.canStartNPCTimer = true;
+            }
+            if(adManager.adRunning)
+            {
+                gm.canStartTimer= false;
             }
 
             pos.anchoredPosition = Vector3.Lerp(pos.anchoredPosition, startPosX, lerpSpeed * Time.deltaTime);

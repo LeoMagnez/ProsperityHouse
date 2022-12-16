@@ -7,6 +7,7 @@ public class BackgroundChanging : MonoBehaviour
 
     public Gamemanager gm;
     public SpriteRenderer spriteRenderer;
+    public TimeAccelerator adManager;
 
     public Color dayColor;
     public Color eveningColor;
@@ -41,19 +42,29 @@ public class BackgroundChanging : MonoBehaviour
     {
         //DAY TO EVENING
         spriteRenderer.color = Color.Lerp(dayColor, eveningColor, dayLerpSpeed);
-        if(dayLerpSpeed < 1f)
+        if(dayLerpSpeed < 1f && !adManager.hasAdPlayed)
         {
             dayLerpSpeed += Time.deltaTime / duration;
         }
 
+        if (dayLerpSpeed < 1f && adManager.hasAdPlayed)
+        {
+            dayLerpSpeed += (Time.deltaTime / duration) * 2;
+        }
+
         //EVENING TO NIGHT
-        if(dayLerpSpeed >= 1f)
+        if (dayLerpSpeed >= 1f)
         {
             spriteRenderer.color = Color.Lerp(eveningColor, nightColor, nightLerpSpeed);
 
-            if (nightLerpSpeed < 1f)
+            if (nightLerpSpeed < 1f && !adManager.hasAdPlayed)
             {
                 nightLerpSpeed += Time.deltaTime / duration;
+            }
+
+            if (nightLerpSpeed < 1f && adManager.hasAdPlayed)
+            {
+                nightLerpSpeed += (Time.deltaTime / duration) * 2;
             }
         }
 

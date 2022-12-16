@@ -49,6 +49,7 @@ public class Gamemanager : MonoBehaviour
     public InventoryManager inventoryManager;
     public BackgroundChanging backgroundChanging;
     public NPCSliding npcSliding;
+    public TimeAccelerator adManager;
     
 
     [Header("Currency")]
@@ -75,6 +76,7 @@ public class Gamemanager : MonoBehaviour
 
     [Header("NPC Spawns")]
     public int counter = 0;
+    public bool canStartNPCTimer;
     public float npcTimer;
 
     public PNJTemplate[] firstPhase;
@@ -231,9 +233,16 @@ public class Gamemanager : MonoBehaviour
 
     public void SellerAppears()
     {
-        if (canStartTimer)
+        if (canStartTimer && !adManager.hasAdPlayed)
         {
             timer -= 1f * Time.deltaTime;
+        }
+
+        if(canStartTimer && adManager.hasAdPlayed)
+        {
+            StartCoroutine(adManager.ReturnTimeToNormal());
+            timer -= 2f * Time.deltaTime;
+           
         }
 
         if (timer <= 0f)
@@ -371,6 +380,8 @@ public class Gamemanager : MonoBehaviour
         }
     }
     #endregion
+
+
 
     #endregion
 }

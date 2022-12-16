@@ -59,6 +59,7 @@ public class NPCManager : MonoBehaviour
     public Gamemanager gm;
     public InventoryManager inventoryManager;
     public Button sellButton;
+    public TimeAccelerator adManager;
     #endregion
 
 
@@ -88,12 +89,17 @@ public class NPCManager : MonoBehaviour
             sellButton.interactable = true;
         }
 
-        if(gm.canStartTimer)
+        if(gm.canStartTimer && gm.canStartNPCTimer && !adManager.hasAdPlayed)
         {
             gm.npcTimer -= 1 * Time.deltaTime;
         }
 
-        if(gm.npcTimer <= 0)
+        if (gm.canStartTimer && gm.canStartNPCTimer && adManager.hasAdPlayed)
+        {
+            gm.npcTimer -= 2 * Time.deltaTime;
+        }
+
+        if (gm.npcTimer <= 0)
         {
             gm.isNotificationActive = true;
         }
