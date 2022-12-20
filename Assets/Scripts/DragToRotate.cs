@@ -9,6 +9,6 @@ public class DragToRotate : MonoBehaviour
     public void OnMouseDrag()
     {
         float XAxisRotation = Input.GetAxis("Mouse X") * rotationSpeed;
-        transform.Rotate(Vector3.down, XAxisRotation);
+        transform.Rotate(Vector3.back, XAxisRotation);
     }
 }
