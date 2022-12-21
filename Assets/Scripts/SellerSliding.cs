@@ -33,7 +33,7 @@ public class SellerSliding : MonoBehaviour
         }
         else
         {
-            if(!gm.npcSliding.open)
+            if(!gm.npcSliding.open && !adManager.isPopUpActive)
             {
                 gm.canStartTimer = true;
                 gm.canStartNPCTimer = true;

@@ -18,6 +18,6 @@ MonoBehaviour:
     consequat elit pretium interdum. Integer nec elementum est.
   searchedItems:
   - {fileID: 11400000, guid: bd5c3403924c0f7459ca9e5b39485a8a, type: 2}
-  - {fileID: 11400000, guid: c737bbcea25af9f47a048291dd97674c, type: 2}
+  - {fileID: 11400000, guid: 6d54552edd4bcd94f891afb88e9ee6fa, type: 2}
   - {fileID: 11400000, guid: 54153e5aa40e91943b19094ae2a0f3f5, type: 2}
   npcArtwork: {fileID: 0}

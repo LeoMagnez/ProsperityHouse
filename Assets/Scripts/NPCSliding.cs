@@ -34,6 +34,10 @@ public class NPCSliding : MonoBehaviour
             {
                 gm.canStartTimer = true;
             }
+            if(!adManager.isPopUpActive)
+            {
+                gm.canStartTimer = true;
+            }
 
             pos.anchoredPosition = Vector3.Lerp(pos.anchoredPosition, startPosX, lerpSpeed * Time.deltaTime);
         }

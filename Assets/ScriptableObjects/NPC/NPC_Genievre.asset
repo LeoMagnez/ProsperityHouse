@@ -19,4 +19,5 @@ MonoBehaviour:
   searchedItems:
   - {fileID: 11400000, guid: e7e6178a695cfa647a17b3f094075a5f, type: 2}
   - {fileID: 11400000, guid: c447d7c38bc741e4da5593a54895e96b, type: 2}
+  - {fileID: 11400000, guid: 7c5df70efee0ca34a9494683e43bbe40, type: 2}
   npcArtwork: {fileID: 21300000, guid: 6ee48a59156c4684783c2bff01f062be, type: 3}
