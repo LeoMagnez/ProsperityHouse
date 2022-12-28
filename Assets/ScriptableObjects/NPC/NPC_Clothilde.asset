@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Clothilde
   npcJob: Cooker
-  npcDialogue: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at sem
-    consequat elit pretium interdum. Integer nec elementum est.
+  npcDialogue:
+  - Qu'avez-vous en stock aujourd'hui ?
+  - Lorem ipsum 1
+  - Lorem ipsum 2
+  - Lorem ipsum 3
   searchedItems:
   - {fileID: 11400000, guid: 7c5df70efee0ca34a9494683e43bbe40, type: 2}
   - {fileID: 11400000, guid: bd5c3403924c0f7459ca9e5b39485a8a, type: 2}

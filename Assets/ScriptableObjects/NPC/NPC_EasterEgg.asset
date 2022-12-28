@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Kaif
   npcJob: 
-  npcDialogue: You found an Easter Egg !
+  npcDialogue:
+  - Qu'avez-vous en stock aujourd'hui ?
+  - Lorem ipsum 1
+  - Lorem ipsum 2
+  - Lorem ipsum 3
   searchedItems:
   - {fileID: 11400000, guid: e7e6178a695cfa647a17b3f094075a5f, type: 2}
   npcArtwork: {fileID: 21300000, guid: 1ebe6396aa476f1449d5d7c360b398f6, type: 3}

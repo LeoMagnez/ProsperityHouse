@@ -28,6 +28,8 @@ public class NPCManager : MonoBehaviour
     public TextMeshProUGUI npcJobText;
     public TextMeshProUGUI npcDialogueText;
     public Image npcArtwork;
+    public int npcDialogueIndex;
+    public Button continueDialogueButton;
 
     [Header("Item searched")]
     public ItemTemplate searchedItemTemplate;
@@ -68,6 +70,7 @@ public class NPCManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        npcDialogueIndex = 1;
         npcCurrent = 0;
         itemCurrent = 0;
         npcList = gm.NPCSpawner();
@@ -111,7 +114,7 @@ public class NPCManager : MonoBehaviour
         npc = npcList[npcCurrent];
         npcNameText.text = npc.npcName;
         npcJobText.text = npc.npcJob;
-        npcDialogueText.text = npc.npcDialogue;
+        npcDialogueText.text = npc.npcDialogue[npcDialogueIndex];
         npcArtwork.sprite = npc.npcArtwork;
     }
 
@@ -133,6 +136,8 @@ public class NPCManager : MonoBehaviour
 
     public void NewNPCTrade()
     {
+        continueDialogueButton.interactable = true;
+        npcDialogueIndex = 1;
         npcList = gm.NPCSpawner();
         if (npcCurrent < npcList.Length - 1)
         {
@@ -149,6 +154,20 @@ public class NPCManager : MonoBehaviour
         ReloadItems();
         ReloadMargin();
     }
+
+    public void NPCDialogues()
+    {
+        if(npcDialogueIndex < npc.npcDialogue.Length - 1)
+        {
+            npcDialogueIndex += 1;
+        }
+        else
+        {
+            npcDialogueIndex = 0;
+            continueDialogueButton.interactable = false;
+        }
+        ReloadNPC();
+    }
     #endregion
 
     /*============================ SPECIAL NPCs ============================*/
@@ -159,7 +178,7 @@ public class NPCManager : MonoBehaviour
         npc = specialNPC[specialNPCCurrent];
         npcNameText.text = npc.npcName;
         npcJobText.text = npc.npcJob;
-        npcDialogueText.text = npc.npcDialogue;
+        npcDialogueText.text = npc.npcDialogue[npcDialogueIndex];
         npcArtwork.sprite = npc.npcArtwork;
     }
     
@@ -186,7 +205,7 @@ public class NPCManager : MonoBehaviour
         npc = easterEggNPC[easterEggNPCCurrent];
         npcNameText.text = npc.npcName;
         npcJobText.text = npc.npcJob;
-        npcDialogueText.text = npc.npcDialogue;
+        npcDialogueText.text = npc.npcDialogue[npcDialogueIndex];
         npcArtwork.sprite = npc.npcArtwork;
     }
 

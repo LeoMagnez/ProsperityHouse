@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Constance
   npcJob: Baby-minder
-  npcDialogue: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at sem
-    consequat elit pretium interdum. Integer nec elementum est.
+  npcDialogue:
+  - Qu'avez-vous en stock aujourd'hui ?
+  - Lorem ipsum 1
+  - Lorem ipsum 2
+  - Lorem ipsum 3
   searchedItems:
   - {fileID: 11400000, guid: 3c0ba7f64c85d45479976000cfd462b9, type: 2}
   - {fileID: 11400000, guid: 658a74f6bccd53a4abd92b0a5923a8f3, type: 2}

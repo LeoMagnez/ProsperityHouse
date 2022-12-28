@@ -14,8 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Beaudoin
   npcJob: Baker
-  npcDialogue: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at sem
-    consequat elit pretium interdum. Integer nec elementum est.
+  npcDialogue:
+  - Qu'avez-vous en stock aujourd'hui ?
+  - Lorem ipsum 1
+  - Lorem ipsum 2
+  - Lorem ipsum 3
   searchedItems:
   - {fileID: 11400000, guid: bfac94fa95c4e534387e77e06c0faea9, type: 2}
   - {fileID: 11400000, guid: e7e6178a695cfa647a17b3f094075a5f, type: 2}

@@ -7,7 +7,7 @@ public class PNJTemplate : ScriptableObject
 {
     public string npcName;
     public string npcJob;
-    public string npcDialogue;
+    public string[] npcDialogue;
     public ItemTemplate[] searchedItems;
     public Sprite npcArtwork;
     
