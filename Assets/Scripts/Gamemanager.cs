@@ -50,6 +50,7 @@ public class Gamemanager : MonoBehaviour
     public BackgroundChanging backgroundChanging;
     public NPCSliding npcSliding;
     public TimeAccelerator adManager;
+    public ParticleSystem upgradeParticles;
     
 
     [Header("Currency")]

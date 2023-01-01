@@ -62,6 +62,7 @@ public class NPCManager : MonoBehaviour
     public InventoryManager inventoryManager;
     public Button sellButton;
     public TimeAccelerator adManager;
+    public ParticleSystem coinParticles;
     #endregion
 
 
@@ -235,6 +236,7 @@ public class NPCManager : MonoBehaviour
         //Items
         if(inventoryManager.itemDictionnary.TryGetValue(searchedItemTemplate, out InventoryItem item))
         {
+            coinParticles.Play();
             gm.inventoryManager.Remove(searchedItemTemplate);
             gm.money += searchedItemTemplate.itemSellingPrice + itemFinalValue;
 

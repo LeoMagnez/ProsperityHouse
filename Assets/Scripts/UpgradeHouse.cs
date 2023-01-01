@@ -11,6 +11,7 @@ public class UpgradeHouse : MonoBehaviour
         
         if (gm.money >= gm.upgradeCost)
         {
+            gm.upgradeParticles.Play();
             gm.NextPhase();
             gm.money -= gm.upgradeCost;
         }

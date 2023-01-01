@@ -15,7 +15,6 @@ public class BuyItem : MonoBehaviour
     {
         if(Gamemanager.Instance.money >= template.itemBuyingPrice)
         {
-
             Gamemanager.Instance.BuyItemFromSeller(this);
         }
         else
@@ -27,6 +26,7 @@ public class BuyItem : MonoBehaviour
 
         //Debug.Log("babar");
     }
+
 
 
 
