@@ -17,15 +17,11 @@ public class FadeTransitions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.A))
+        if(Gamemanager.Instance.endOfGame == true)
         {
             StartCoroutine(FadeBlackSquare());
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            StartCoroutine(FadeBlackSquare(false));
-        }
     }
 
     public IEnumerator FadeBlackSquare(bool fadeToBlack = true, int fadingSpeed = 5)

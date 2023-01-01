@@ -6,7 +6,7 @@ using System;
 public class InventorySlotsManager : MonoBehaviour
 {
     public GameObject slotPrefab;
-    public List<InventorySlot> inventorySlots = new List<InventorySlot>(14);
+    public List<InventorySlot> inventorySlots = new List<InventorySlot>(15);
 
     private void OnEnable()
     {
@@ -25,7 +25,7 @@ public class InventorySlotsManager : MonoBehaviour
             Destroy(childTransform.gameObject);
         }
 
-        inventorySlots = new List<InventorySlot>(14);
+        inventorySlots = new List<InventorySlot>(15);
     }
 
     void DrawInventory(List<InventoryItem> inventory)

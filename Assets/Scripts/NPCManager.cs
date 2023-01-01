@@ -30,6 +30,7 @@ public class NPCManager : MonoBehaviour
     public Image npcArtwork;
     public int npcDialogueIndex;
     public Button continueDialogueButton;
+    public bool isSpecialNPC;
 
     [Header("Item searched")]
     public ItemTemplate searchedItemTemplate;
@@ -137,6 +138,7 @@ public class NPCManager : MonoBehaviour
 
     public void NewNPCTrade()
     {
+        isSpecialNPC = false;
         continueDialogueButton.interactable = true;
         npcDialogueIndex = 1;
         npcList = gm.NPCSpawner();
@@ -158,16 +160,36 @@ public class NPCManager : MonoBehaviour
 
     public void NPCDialogues()
     {
-        if(npcDialogueIndex < npc.npcDialogue.Length - 1)
+        if(!isSpecialNPC)
         {
-            npcDialogueIndex += 1;
+            if (npcDialogueIndex < npc.npcDialogue.Length - 1)
+            {
+                npcDialogueIndex += 1;
+            }
+            else
+            {
+                npcDialogueIndex = 0;
+                continueDialogueButton.interactable = false;
+            }
+            ReloadNPC();
         }
-        else
+
+        if(isSpecialNPC)
         {
-            npcDialogueIndex = 0;
-            continueDialogueButton.interactable = false;
+            if (npcDialogueIndex < npc.npcDialogue.Length - 1)
+            {
+                npcDialogueIndex += 1;
+            }
+            else
+            {
+                npcDialogueIndex = 0;
+                continueDialogueButton.interactable = false;
+            }
+
+            ReloadSpecialNPCs();
         }
-        ReloadNPC();
+
+
     }
     #endregion
 
@@ -176,6 +198,7 @@ public class NPCManager : MonoBehaviour
     
     public void ReloadSpecialNPCs()
     {
+
         npc = specialNPC[specialNPCCurrent];
         npcNameText.text = npc.npcName;
         npcJobText.text = npc.npcJob;
@@ -185,6 +208,9 @@ public class NPCManager : MonoBehaviour
     
     public void SpecialNPCTrade()
     {
+        isSpecialNPC = true;
+        continueDialogueButton.interactable = true;
+        npcDialogueIndex = 1;
         specialNPC = gm.SpecialNPCSpawner();
         if(specialNPCCurrent < specialNPC.Length - 1)
         {

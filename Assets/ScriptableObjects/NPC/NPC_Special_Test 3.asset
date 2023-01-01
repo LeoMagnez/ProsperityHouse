@@ -15,12 +15,13 @@ MonoBehaviour:
   npcName: Test
   npcJob: Test
   npcDialogue:
-  - Qu'avez-vous en stock aujourd'hui ?
-  - Lorem ipsum 1
-  - Lorem ipsum 2
-  - Lorem ipsum 3
+  - Vous etes comme les autres...C'est decevant !
+  - Regardez ces idiots qui fuient la ville a cause
+  - de cette soit-disante "Peste" ! Cette maladie n'existe pas !
+  - Oh... Vous partez vous aussi ? Dans ce cas, je vous rachete votre maison.
+  - A moi la richesse !
   searchedItems:
-  - {fileID: 11400000, guid: 54153e5aa40e91943b19094ae2a0f3f5, type: 2}
-  - {fileID: 11400000, guid: c447d7c38bc741e4da5593a54895e96b, type: 2}
-  - {fileID: 11400000, guid: 7c5df70efee0ca34a9494683e43bbe40, type: 2}
+  - {fileID: 11400000, guid: fc36ccde3013aac42a10a7b0056c8739, type: 2}
+  - {fileID: 11400000, guid: fc36ccde3013aac42a10a7b0056c8739, type: 2}
+  - {fileID: 11400000, guid: fc36ccde3013aac42a10a7b0056c8739, type: 2}
   npcArtwork: {fileID: 0}

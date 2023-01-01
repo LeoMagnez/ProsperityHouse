@@ -312,6 +312,14 @@ public class Gamemanager : MonoBehaviour
         }
         
     }
+
+    public void EndOfGame()
+    {
+        if(phase == 3 && counter == 3)
+        {
+            endOfGame = true;
+        }
+    }
     #endregion
 
     /*============================ MONEY ============================*/
@@ -345,6 +353,14 @@ public class Gamemanager : MonoBehaviour
 
     }
 
+    public void FinalTrade(BuyItem _item)
+    {
+        if(phase == 3 && counter == 3)
+        {
+            inventoryManager.Add(_item.template);
+        }
+    }
+
     public void UpgradeCost()
     {
         if(phase == 0)
@@ -364,6 +380,7 @@ public class Gamemanager : MonoBehaviour
 
         if (phase == 3)
         {
+            upgradeButton.gameObject.SetActive(false);
             upgradeCost = 4500f;
         }
 
