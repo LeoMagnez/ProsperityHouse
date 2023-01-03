@@ -26,6 +26,7 @@ public class SellerSliding : MonoBehaviour
         {
             gm.canStartTimer = false;
             gm.canStartNPCTimer = false;
+            gm.backgroundChanging.canChangeTime = false;
             pos.anchoredPosition = Vector3.Lerp(pos.anchoredPosition, endPosX, lerpSpeed * Time.deltaTime);
             SellerDialogues();
             
@@ -37,10 +38,12 @@ public class SellerSliding : MonoBehaviour
             {
                 gm.canStartTimer = true;
                 gm.canStartNPCTimer = true;
+                gm.backgroundChanging.canChangeTime = true;
             }
             if(adManager.adRunning)
             {
                 gm.canStartTimer= false;
+                gm.backgroundChanging.canChangeTime = false;
             }
 
             pos.anchoredPosition = Vector3.Lerp(pos.anchoredPosition, startPosX, lerpSpeed * Time.deltaTime);

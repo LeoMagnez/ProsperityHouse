@@ -79,6 +79,7 @@ public class NPCSliding : MonoBehaviour
 
             gm.canStartTimer = false;
             gm.canStartNPCTimer = false;
+            gm.backgroundChanging.canChangeTime = false;
             gm.npcTimer = 10f;
             easterEgg = Random.Range(0, 10000);
 
@@ -104,6 +105,7 @@ public class NPCSliding : MonoBehaviour
             gm.isNotificationActive = false;
             gm.canStartTimer = true;
             gm.canStartNPCTimer = true;
+            gm.backgroundChanging.canChangeTime = true;
             npcManager.ReloadMargin();
         }
             
