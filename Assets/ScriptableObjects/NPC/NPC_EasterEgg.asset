@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d0b117fb6529374799bb654f2af9a1b, type: 3}
+  m_Name: NPC_EasterEgg
+  m_EditorClassIdentifier: 
+  npcName: Kaif
+  npcJob: 
+  npcDialogue:
+  - Qu'avez-vous en stock aujourd'hui ?
+  - Lorem ipsum 1
+  - Lorem ipsum 2
+  - Lorem ipsum 3
+  searchedItems:
+  - {fileID: 11400000, guid: e7e6178a695cfa647a17b3f094075a5f, type: 2}
+  npcArtwork: {fileID: 21300000, guid: 1ebe6396aa476f1449d5d7c360b398f6, type: 3}

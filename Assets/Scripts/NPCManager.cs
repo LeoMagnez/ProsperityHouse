@@ -1,11 +1,26 @@
+/*============================ PROSPERITY HOUSE - NPC MANAGER ============================
+ 
+Created by LAGARDE Rosalie & MAGNEZ Léo - Copyright 2023 ETPA Toulouse, France
+
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+/*============================ TABLE OF CONTENT ============================
+ 
+VARIABLES
 
+FUNCTIONS
+    -CLASSIC NPCs
+    -SPECIAL NPCs
+    -SELL ITEM
+ */
 public class NPCManager : MonoBehaviour
 {
+    /* ============================ VARIABLES ============================*/
+    #region VARIABLES
     [Header("NPC Characteristics")]
     public PNJTemplate npc;
 
@@ -13,6 +28,9 @@ public class NPCManager : MonoBehaviour
     public TextMeshProUGUI npcJobText;
     public TextMeshProUGUI npcDialogueText;
     public Image npcArtwork;
+    public int npcDialogueIndex;
+    public Button continueDialogueButton;
+    public bool isSpecialNPC;
 
     [Header("Item searched")]
     public ItemTemplate searchedItemTemplate;
@@ -23,6 +41,15 @@ public class NPCManager : MonoBehaviour
     public Image itemArtwork;
     public float itemMarginMultiplier;
     public float itemFinalValue;
+
+    [Header("Special NPCs")]
+    [SerializeField]
+    private PNJTemplate[] specialNPC;
+    private int specialNPCCurrent;
+
+    [Header("Easter Egg")]
+    public PNJTemplate[] easterEggNPC;
+    private int easterEggNPCCurrent;
 
     [SerializeField]
     private PNJTemplate[] npcList;
@@ -35,10 +62,17 @@ public class NPCManager : MonoBehaviour
     public Gamemanager gm;
     public InventoryManager inventoryManager;
     public Button sellButton;
+    public TimeAccelerator adManager;
+    public ParticleSystem coinParticles;
+    #endregion
 
+
+    /* ============================ FUNCTIONS ============================*/
+    #region FUNCTIONS
     // Start is called before the first frame update
     void Start()
     {
+        npcDialogueIndex = 1;
         npcCurrent = 0;
         itemCurrent = 0;
         npcList = gm.NPCSpawner();
@@ -51,15 +85,38 @@ public class NPCManager : MonoBehaviour
 
     void Update()
     {
+        if(!inventoryManager.itemDictionnary.TryGetValue(searchedItemTemplate, out InventoryItem item))
+        {
+            sellButton.interactable = false;
+        }
+        else
+        {
+            sellButton.interactable = true;
+        }
 
+        if(gm.canStartTimer && gm.canStartNPCTimer && !adManager.hasAdPlayed)
+        {
+            gm.npcTimer -= 1 * Time.deltaTime;
+        }
+
+        if (gm.canStartTimer && gm.canStartNPCTimer && adManager.hasAdPlayed)
+        {
+            gm.npcTimer -= 2 * Time.deltaTime;
+        }
+
+        if (gm.npcTimer <= 0)
+        {
+            gm.isNotificationActive = true;
+        }
     }
-
+    /*============================ CLASSIC NPCs ============================*/
+    #region Classic NPCs
     public void ReloadNPC()
     {
         npc = npcList[npcCurrent];
         npcNameText.text = npc.npcName;
         npcJobText.text = npc.npcJob;
-        npcDialogueText.text = npc.npcDialogue;
+        npcDialogueText.text = npc.npcDialogue[npcDialogueIndex];
         npcArtwork.sprite = npc.npcArtwork;
     }
 
@@ -81,6 +138,9 @@ public class NPCManager : MonoBehaviour
 
     public void NewNPCTrade()
     {
+        isSpecialNPC = false;
+        continueDialogueButton.interactable = true;
+        npcDialogueIndex = 1;
         npcList = gm.NPCSpawner();
         if (npcCurrent < npcList.Length - 1)
         {
@@ -92,38 +152,126 @@ public class NPCManager : MonoBehaviour
         }
         npcCurrentItems = npcList[npcCurrent].searchedItems;
         itemCurrent = Random.Range(0, npcCurrentItems.Length);
-        sellButton.interactable = true;
         Debug.Log(itemCurrent);
         ReloadNPC();
         ReloadItems();
         ReloadMargin();
     }
 
+    public void NPCDialogues()
+    {
+        if(!isSpecialNPC)
+        {
+            if (npcDialogueIndex < npc.npcDialogue.Length - 1)
+            {
+                npcDialogueIndex += 1;
+            }
+            else
+            {
+                npcDialogueIndex = 0;
+                continueDialogueButton.interactable = false;
+            }
+            ReloadNPC();
+        }
 
-    //-*-*--*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
-    //           Vente d'item requis
-    //-*-*--*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+        if(isSpecialNPC)
+        {
+            if (npcDialogueIndex < npc.npcDialogue.Length - 1)
+            {
+                npcDialogueIndex += 1;
+            }
+            else
+            {
+                npcDialogueIndex = 0;
+                continueDialogueButton.interactable = false;
+            }
 
+            ReloadSpecialNPCs();
+        }
+
+
+    }
+    #endregion
+
+    /*============================ SPECIAL NPCs ============================*/
+    #region Special NPCs
+    
+    public void ReloadSpecialNPCs()
+    {
+
+        npc = specialNPC[specialNPCCurrent];
+        npcNameText.text = npc.npcName;
+        npcJobText.text = npc.npcJob;
+        npcDialogueText.text = npc.npcDialogue[npcDialogueIndex];
+        npcArtwork.sprite = npc.npcArtwork;
+    }
+    
+    public void SpecialNPCTrade()
+    {
+        isSpecialNPC = true;
+        continueDialogueButton.interactable = true;
+        npcDialogueIndex = 1;
+        specialNPC = gm.SpecialNPCSpawner();
+        if(specialNPCCurrent < specialNPC.Length - 1)
+        {
+            specialNPCCurrent += 1;
+        }
+        else
+        {
+            specialNPCCurrent = 0;
+        }
+        npcCurrentItems = specialNPC[specialNPCCurrent].searchedItems;
+        itemCurrent = Random.Range(0, npcCurrentItems.Length);
+        ReloadSpecialNPCs();
+        ReloadItems();
+        ReloadMargin();
+    }
+
+    public void ReloadEasterEgg()
+    {
+        npc = easterEggNPC[easterEggNPCCurrent];
+        npcNameText.text = npc.npcName;
+        npcJobText.text = npc.npcJob;
+        npcDialogueText.text = npc.npcDialogue[npcDialogueIndex];
+        npcArtwork.sprite = npc.npcArtwork;
+    }
+
+    public void EasterEgg()
+    {
+        if(easterEggNPCCurrent < easterEggNPC.Length - 1)
+        {
+            easterEggNPCCurrent += 1;
+        }
+        else
+        {
+            easterEggNPCCurrent = 0;
+        }
+        npcCurrentItems = easterEggNPC[easterEggNPCCurrent].searchedItems;
+        itemCurrent = Random.Range(0, npcCurrentItems.Length);
+        ReloadEasterEgg();
+        ReloadItems();
+        ReloadMargin();
+    }
+    #endregion
+
+    /*============================ SELL ITEM ============================*/
+    #region Sell Item
     public void SellItem()
     {
 
         //Items
         if(inventoryManager.itemDictionnary.TryGetValue(searchedItemTemplate, out InventoryItem item))
         {
+            coinParticles.Play();
             gm.inventoryManager.Remove(searchedItemTemplate);
             gm.money += searchedItemTemplate.itemSellingPrice + itemFinalValue;
 
         }
-        else
-        {
-            Debug.Log("Vous ne possédez pas l'item");
-            sellButton.interactable = false;
-        }
-
 
     }
+    #endregion
 
-
+    #endregion
 
 
 }

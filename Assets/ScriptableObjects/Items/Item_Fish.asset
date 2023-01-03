@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Fish
   itemArtwork: {fileID: 21300000, guid: fdd7ef2296b494948975d449be06d69c, type: 3}
-  itemBuyPrice: 25
+  itemBuyingPrice: 15
+  itemSellingPrice: 20

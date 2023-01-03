@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 /*============================ TABLE OF CONTENT ============================
  
@@ -48,26 +49,37 @@ public class Gamemanager : MonoBehaviour
     public InventoryManager inventoryManager;
     public BackgroundChanging backgroundChanging;
     public NPCSliding npcSliding;
+    public TimeAccelerator adManager;
+    public ParticleSystem upgradeParticles;
     
 
     [Header("Currency")]
     public float money = 500f;
     public TextMeshProUGUI moneyText;
-    public BuyItem[] itemPrice;
     public TextMeshProUGUI upgradeText;
     public float upgradeCost;
+    public Button upgradeButton;
 
     [Header("Phase")]
     public int phase;
-    public TextMeshProUGUI currentPhase;
+    public GameObject firstHouse;
+    public GameObject secondHouse;
+    public GameObject thirdHouse;
+    public GameObject fourthHouse;
 
     [Header("Day/Night Cycle")]
     public SellerSliding sellerPanelSliding;
     public float timer;
     public bool canStartTimer;
+    public GameObject notification;
+    public bool isNotificationActive;
 
 
     [Header("NPC Spawns")]
+    public int counter = 0;
+    public bool canStartNPCTimer;
+    public float npcTimer;
+
     public PNJTemplate[] firstPhase;
 
     public PNJTemplate[] secondPhase;
@@ -75,6 +87,15 @@ public class Gamemanager : MonoBehaviour
     public PNJTemplate[] thirdPhase;
 
     public PNJTemplate[] fourthPhase;
+
+    [Header("Special NPCs")]
+    public PNJTemplate[] specialFirstPhase;
+
+    public PNJTemplate[] specialSecondPhase;
+
+    public PNJTemplate[] specialThirdPhase;
+
+    public PNJTemplate[] specialFourthPhase;
 
     [Header("Seller")]
     public GameObject itemsFirstPhase;
@@ -96,6 +117,10 @@ public class Gamemanager : MonoBehaviour
         Application.targetFrameRate = 60;
         sellerPanelSliding.open = true;
         phase = 0;
+        firstHouse.SetActive(true);
+        secondHouse.SetActive(false);
+        thirdHouse.SetActive(false);
+        fourthHouse.SetActive(false);
     }
 
     // Update is called once per frame
@@ -103,13 +128,19 @@ public class Gamemanager : MonoBehaviour
     {
         moneyText.text = money.ToString();
         upgradeText.text = "Upgrade - " + upgradeCost.ToString();
-        currentPhase.text = (phase + 1).ToString();
         CurrencyModify();
 
 
         SellerAppears();
         SellerItemsSpawner();
         UpgradeCost();
+        CanBuy();
+        CanUpgrade();
+
+        if(money < 0)
+        {
+            money = 0;
+        }
 
 
         
@@ -138,6 +169,29 @@ public class Gamemanager : MonoBehaviour
         return firstPhase;
         
     }
+
+    public PNJTemplate[] SpecialNPCSpawner()
+    {
+        switch (phase)
+        {
+            case 0:
+                return specialFirstPhase;
+
+            case 1:
+                return specialSecondPhase;
+
+            case 2:
+                return specialThirdPhase;
+
+            case 3:
+                return specialFourthPhase;
+
+        }
+        return specialFirstPhase;
+
+    }
+
+
     #endregion
 
     /*============================ SELLER ============================*/
@@ -180,9 +234,16 @@ public class Gamemanager : MonoBehaviour
 
     public void SellerAppears()
     {
-        if (canStartTimer)
+        if (canStartTimer && !adManager.hasAdPlayed)
         {
             timer -= 1f * Time.deltaTime;
+        }
+
+        if(canStartTimer && adManager.hasAdPlayed)
+        {
+            StartCoroutine(adManager.ReturnTimeToNormal());
+            timer -= 2f * Time.deltaTime;
+           
         }
 
         if (timer <= 0f)
@@ -195,21 +256,18 @@ public class Gamemanager : MonoBehaviour
 
     public void CanBuy()
     {
-        if (money <= 0)
+        var tempItems = FindObjectsOfType<BuyItem>();
+        for (int i = 0; i < tempItems.Length; i++)
         {
-            var tempItems = FindObjectsOfType<BuyItem>();
-            for(int i = 0; i < tempItems.Length; i++)
+            if(money < tempItems[i].template.itemBuyingPrice)
             {
                 tempItems[i].button.interactable = false;
             }
-        }
-        else
-        {
-            var tempItems = FindObjectsOfType<BuyItem>();
-            for (int i = 0; i < tempItems.Length; i++)
+            else
             {
                 tempItems[i].button.interactable = true;
             }
+
         }
     }
     #endregion
@@ -222,7 +280,45 @@ public class Gamemanager : MonoBehaviour
     public void NextPhase()
     {
         phase++;
+        counter = 0;
+
+        switch (phase)
+        {
+            case 0:
+                firstHouse.SetActive(true);
+                secondHouse.SetActive(false);
+                thirdHouse.SetActive(false);
+                fourthHouse.SetActive(false);
+                break;
+            case 1:
+                firstHouse.SetActive(false);
+                secondHouse.SetActive(true);
+                thirdHouse.SetActive(false);
+                fourthHouse.SetActive(false);
+                break;
+            case 2:
+                firstHouse.SetActive(false);
+                secondHouse.SetActive(false);
+                thirdHouse.SetActive(true);
+                fourthHouse.SetActive(false);
+                break;
+            case 3:
+                firstHouse.SetActive(false);
+                secondHouse.SetActive(false);
+                thirdHouse.SetActive(false);
+                fourthHouse.SetActive(true);
+                break;
+
+        }
         
+    }
+
+    public void EndOfGame()
+    {
+        if(phase == 3 && counter == 3)
+        {
+            endOfGame = true;
+        }
     }
     #endregion
 
@@ -249,10 +345,20 @@ public class Gamemanager : MonoBehaviour
 
     public void BuyItemFromSeller(BuyItem _item)
     {
-        money -= _item.template.itemBuyingPrice;
-        inventoryManager.Add(_item.template);
+        if(money > _item.template.itemBuyingPrice)
+        {
+            money -= _item.template.itemBuyingPrice;
+            inventoryManager.Add(_item.template);
+        }
 
+    }
 
+    public void FinalTrade(BuyItem _item)
+    {
+        if(phase == 3 && counter == 3)
+        {
+            inventoryManager.Add(_item.template);
+        }
     }
 
     public void UpgradeCost()
@@ -274,10 +380,26 @@ public class Gamemanager : MonoBehaviour
 
         if (phase == 3)
         {
+            upgradeButton.gameObject.SetActive(false);
             upgradeCost = 4500f;
+        }
+
+    }
+
+    public void CanUpgrade()
+    {
+        if(money < upgradeCost)
+        {
+            upgradeButton.interactable = false;
+        }
+        else
+        {
+            upgradeButton.interactable = true;
         }
     }
     #endregion
+
+
 
     #endregion
 }

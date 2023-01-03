@@ -14,7 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Conrad
   npcJob: Butcher
-  npcDialogue: 
+  npcDialogue:
+  - Qu'avez-vous en stock aujourd'hui ?
+  - Lorem ipsum 1
+  - Lorem ipsum 2
+  - Lorem ipsum 3
+  - Lorem ipsum 4
+  - Lorem ipsum 5
+  - Lorem ipsum 6
   searchedItems:
   - {fileID: 11400000, guid: 7c5df70efee0ca34a9494683e43bbe40, type: 2}
+  - {fileID: 11400000, guid: c447d7c38bc741e4da5593a54895e96b, type: 2}
+  - {fileID: 11400000, guid: e7e6178a695cfa647a17b3f094075a5f, type: 2}
   npcArtwork: {fileID: 0}

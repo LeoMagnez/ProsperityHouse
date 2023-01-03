@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Spices
   itemArtwork: {fileID: 21300000, guid: a826767d0fef20743b6a1ace6cc45f27, type: 3}
-  itemBuyPrice: 45
+  itemBuyingPrice: 30
+  itemSellingPrice: 40
