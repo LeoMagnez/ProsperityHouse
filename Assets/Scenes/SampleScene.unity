@@ -965,6 +965,54 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &218214579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 218214580}
+  - component: {fileID: 218214581}
+  m_Layer: 0
+  m_Name: LocalizationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &218214580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218214579}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 837744907}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &218214581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218214579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed1446cdf242e1848a523219aa3b9d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLanguage: 0
+  currentLanguageCode: 
+  languagesHeaders: []
+  isReady: 0
 --- !u!1 &228775463
 GameObject:
   m_ObjectHideFlags: 0
@@ -2615,7 +2663,7 @@ MonoBehaviour:
   npc: {fileID: 11400000, guid: ff1db520971839a4f8de9be418940c6d, type: 2}
   npcNameText: {fileID: 1894617972}
   npcJobText: {fileID: 231645016}
-  npcDialogueText: {fileID: 964477439}
+  npcDialogueText: {fileID: 964477440}
   npcArtwork: {fileID: 732624314}
   npcDialogueIndex: 0
   continueDialogueButton: {fileID: 1431856082}
@@ -4492,6 +4540,7 @@ Transform:
   - {fileID: 450188666}
   - {fileID: 1675498554}
   - {fileID: 1563816335}
+  - {fileID: 218214580}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5208,6 +5257,7 @@ GameObject:
   - component: {fileID: 964477437}
   - component: {fileID: 964477438}
   - component: {fileID: 964477439}
+  - component: {fileID: 964477440}
   m_Layer: 0
   m_Name: Dialogue
   m_TagString: Untagged
@@ -5335,6 +5385,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &964477440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964477436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edec5739ac9edad4983dcf1b034da6af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Key: 
 --- !u!224 &999524915 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 583611937505975786, guid: 7a3b5de0fc252104d9dbbd018e166925,

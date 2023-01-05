@@ -14,11 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Test
   npcJob: Test
-  npcDialogue:
-  - Qu'avez-vous en stock aujourd'hui ?
-  - Lorem ipsum 1
-  - Lorem ipsum 2
-  - Lorem ipsum 3
+  npcDialoguePhase1:
+  - default_text
+  - 0_dialogue_conrad1
+  - 0_dialogue_conrad2
+  - 0_dialogue_conrad3
+  npcDialoguePhase2:
+  - default_text
+  - 1_dialogue_conrad1
+  - 1_dialogue_conrad2
+  - 1_dialogue_conrad3
+  npcDialoguePhase3:
+  - default_text
+  npcDialoguePhase4:
+  - default_text
   searchedItems:
   - {fileID: 11400000, guid: 54153e5aa40e91943b19094ae2a0f3f5, type: 2}
   - {fileID: 11400000, guid: c447d7c38bc741e4da5593a54895e96b, type: 2}

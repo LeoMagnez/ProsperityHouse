@@ -14,12 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcName: Test
   npcJob: Test
-  npcDialogue:
-  - Vous etes comme les autres...C'est decevant !
-  - Regardez ces idiots qui fuient la ville a cause
-  - de cette soit-disante "Peste" ! Cette maladie n'existe pas !
-  - Oh... Vous partez vous aussi ? Dans ce cas, je vous rachete votre maison.
-  - A moi la richesse !
+  npcDialoguePhase1:
+  - default_text
+  - 0_dialogue_conrad1
+  - 0_dialogue_conrad2
+  - 0_dialogue_conrad3
+  npcDialoguePhase2:
+  - default_text
+  - 1_dialogue_conrad1
+  - 1_dialogue_conrad2
+  - 1_dialogue_conrad3
+  npcDialoguePhase3:
+  - default_text
+  npcDialoguePhase4:
+  - default_text
   searchedItems:
   - {fileID: 11400000, guid: fc36ccde3013aac42a10a7b0056c8739, type: 2}
   - {fileID: 11400000, guid: fc36ccde3013aac42a10a7b0056c8739, type: 2}

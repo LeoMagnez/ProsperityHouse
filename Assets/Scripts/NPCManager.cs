@@ -26,7 +26,7 @@ public class NPCManager : MonoBehaviour
 
     public TextMeshProUGUI npcNameText;
     public TextMeshProUGUI npcJobText;
-    public TextMeshProUGUI npcDialogueText;
+    public LocalizedText npcDialogueText;
     public Image npcArtwork;
     public int npcDialogueIndex;
     public Button continueDialogueButton;
@@ -72,7 +72,6 @@ public class NPCManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        npcDialogueIndex = 1;
         npcCurrent = 0;
         itemCurrent = 0;
         npcList = gm.NPCSpawner();
@@ -108,6 +107,7 @@ public class NPCManager : MonoBehaviour
         {
             gm.isNotificationActive = true;
         }
+
     }
     /*============================ CLASSIC NPCs ============================*/
     #region Classic NPCs
@@ -116,7 +116,8 @@ public class NPCManager : MonoBehaviour
         npc = npcList[npcCurrent];
         npcNameText.text = npc.npcName;
         npcJobText.text = npc.npcJob;
-        npcDialogueText.text = npc.npcDialogue[npcDialogueIndex];
+        npcDialogueText.Key = npc.GetDialoguesLists(Gamemanager.Instance.phase)[npcDialogueIndex];
+        npcDialogueText.UpdateText();
         npcArtwork.sprite = npc.npcArtwork;
     }
 
@@ -140,7 +141,7 @@ public class NPCManager : MonoBehaviour
     {
         isSpecialNPC = false;
         continueDialogueButton.interactable = true;
-        npcDialogueIndex = 1;
+        npcDialogueIndex = 0;
         npcList = gm.NPCSpawner();
         if (npcCurrent < npcList.Length - 1)
         {
@@ -152,7 +153,6 @@ public class NPCManager : MonoBehaviour
         }
         npcCurrentItems = npcList[npcCurrent].searchedItems;
         itemCurrent = Random.Range(0, npcCurrentItems.Length);
-        Debug.Log(itemCurrent);
         ReloadNPC();
         ReloadItems();
         ReloadMargin();
@@ -162,13 +162,9 @@ public class NPCManager : MonoBehaviour
     {
         if(!isSpecialNPC)
         {
-            if (npcDialogueIndex < npc.npcDialogue.Length - 1)
+            npcDialogueIndex += 1;
+            if (npcDialogueIndex == npc.GetDialoguesLists(Gamemanager.Instance.phase).Length-1)
             {
-                npcDialogueIndex += 1;
-            }
-            else
-            {
-                npcDialogueIndex = 0;
                 continueDialogueButton.interactable = false;
             }
             ReloadNPC();
@@ -176,21 +172,18 @@ public class NPCManager : MonoBehaviour
 
         if(isSpecialNPC)
         {
-            if (npcDialogueIndex < npc.npcDialogue.Length - 1)
+            npcDialogueIndex += 1;
+            if (npcDialogueIndex == npc.GetDialoguesLists(Gamemanager.Instance.phase).Length-1)
             {
-                npcDialogueIndex += 1;
-            }
-            else
-            {
-                npcDialogueIndex = 0;
                 continueDialogueButton.interactable = false;
             }
-
             ReloadSpecialNPCs();
         }
 
 
     }
+
+
     #endregion
 
     /*============================ SPECIAL NPCs ============================*/
@@ -202,7 +195,8 @@ public class NPCManager : MonoBehaviour
         npc = specialNPC[specialNPCCurrent];
         npcNameText.text = npc.npcName;
         npcJobText.text = npc.npcJob;
-        npcDialogueText.text = npc.npcDialogue[npcDialogueIndex];
+        npcDialogueText.Key = npc.GetDialoguesLists(Gamemanager.Instance.phase)[npcDialogueIndex];
+        npcDialogueText.UpdateText();
         npcArtwork.sprite = npc.npcArtwork;
     }
     
@@ -232,7 +226,8 @@ public class NPCManager : MonoBehaviour
         npc = easterEggNPC[easterEggNPCCurrent];
         npcNameText.text = npc.npcName;
         npcJobText.text = npc.npcJob;
-        npcDialogueText.text = npc.npcDialogue[npcDialogueIndex];
+        npcDialogueText.Key = npc.GetDialoguesLists(Gamemanager.Instance.phase)[npcDialogueIndex];
+        npcDialogueText.UpdateText();
         npcArtwork.sprite = npc.npcArtwork;
     }
 
