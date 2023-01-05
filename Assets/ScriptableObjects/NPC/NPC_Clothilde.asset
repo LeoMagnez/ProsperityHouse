@@ -34,4 +34,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bfac94fa95c4e534387e77e06c0faea9, type: 2}
   - {fileID: 11400000, guid: 6d54552edd4bcd94f891afb88e9ee6fa, type: 2}
   - {fileID: 11400000, guid: beaa9c7e7c95d9141bb492f4b1f9aee7, type: 2}
-  npcArtwork: {fileID: 0}
+  npcArtwork: {fileID: 21300000, guid: b4d556853c4b7d74481897def53f9af9, type: 3}

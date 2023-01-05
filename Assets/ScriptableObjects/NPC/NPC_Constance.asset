@@ -31,4 +31,4 @@ MonoBehaviour:
   searchedItems:
   - {fileID: 11400000, guid: 3c0ba7f64c85d45479976000cfd462b9, type: 2}
   - {fileID: 11400000, guid: 658a74f6bccd53a4abd92b0a5923a8f3, type: 2}
-  npcArtwork: {fileID: 0}
+  npcArtwork: {fileID: 21300000, guid: 8e043c3b317cdf64b9e203a19019647f, type: 3}
