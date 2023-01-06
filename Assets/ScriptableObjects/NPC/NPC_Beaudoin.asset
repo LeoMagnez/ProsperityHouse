@@ -15,16 +15,24 @@ MonoBehaviour:
   npcName: Beaudoin - Baker
   npcJob: Baker
   npcDialoguePhase1:
-  - 0_dialogue_conrad1
-  - 0_dialogue_conrad2
-  - 0_dialogue_conrad3
+  - 0_dialogue_beaudoin1
+  - 0_dialogue_beaudoin2
+  - 0_dialogue_beaudoin3
+  - 0_dialogue_beaudoin4
+  - 0_dialogue_beaudoin5
   - default_text
   npcDialoguePhase2:
-  - 1_dialogue_conrad1
-  - 1_dialogue_conrad2
-  - 1_dialogue_conrad3
+  - 1_dialogue_beaudoin1
+  - 1_dialogue_beaudoin2
+  - 1_dialogue_beaudoin3
+  - 1_dialogue_beaudoin4
+  - 1_dialogue_beaudoin5
+  - 1_dialogue_beaudoin6
   - default_text
   npcDialoguePhase3:
+  - 2_dialogue_beaudoin1
+  - 2_dialogue_beaudoin2
+  - 2_dialogue_beaudoin3
   - default_text
   npcDialoguePhase4:
   - default_text

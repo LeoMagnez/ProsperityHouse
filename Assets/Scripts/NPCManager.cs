@@ -131,7 +131,7 @@ public class NPCManager : MonoBehaviour
     public void ReloadMargin()
     {
         itemMarginMultiplier = Random.Range(0.15f, 0.3f);
-        itemFinalValue = Mathf.RoundToInt(searchedItemTemplate.itemSellingPrice * itemMarginMultiplier);
+        itemFinalValue = searchedItemTemplate.itemSellingPrice - searchedItemTemplate.itemBuyingPrice;
         itemMargin.text = "+" + itemFinalValue;
     }
 
@@ -255,7 +255,7 @@ public class NPCManager : MonoBehaviour
         {
             coinParticles.Play();
             gm.inventoryManager.Remove(searchedItemTemplate);
-            gm.money += searchedItemTemplate.itemSellingPrice + itemFinalValue;
+            gm.money += searchedItemTemplate.itemSellingPrice;
 
         }
 
