@@ -15,28 +15,28 @@ MonoBehaviour:
   npcName: Eulalie - Maid
   npcJob: Maid
   npcDialoguePhase1:
+  - default_text
+  npcDialoguePhase2:
   - 0_dialogue_eulalie1
   - 0_dialogue_eulalie2
   - 0_dialogue_eulalie3
   - 0_dialogue_eulalie4
   - 0_dialogue_eulalie5
   - 0_dialogue_eulalie6
-  - 0_dialogue_eulalie37
+  - 0_dialogue_eulalie7
   - default_text
-  npcDialoguePhase2:
+  npcDialoguePhase3:
   - 1_dialogue_eulalie1
   - 1_dialogue_eulalie2
   - 1_dialogue_eulalie3
   - 1_dialogue_eulalie4
   - default_text
-  npcDialoguePhase3:
+  npcDialoguePhase4:
   - 2_dialogue_eulalie1
   - 2_dialogue_eulalie2
   - 2_dialogue_eulalie3
   - 2_dialogue_eulalie4
   - 2_dialogue_eulalie5
-  - default_text
-  npcDialoguePhase4:
   - default_text
   searchedItems:
   - {fileID: 11400000, guid: bd5c3403924c0f7459ca9e5b39485a8a, type: 2}
