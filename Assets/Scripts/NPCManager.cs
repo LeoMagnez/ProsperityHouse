@@ -25,7 +25,6 @@ public class NPCManager : MonoBehaviour
     public PNJTemplate npc;
 
     public TextMeshProUGUI npcNameText;
-    public TextMeshProUGUI npcJobText;
     public LocalizedText npcDialogueText;
     public Image npcArtwork;
     public int npcDialogueIndex;
@@ -115,7 +114,6 @@ public class NPCManager : MonoBehaviour
     {
         npc = npcList[npcCurrent];
         npcNameText.text = npc.npcName;
-        npcJobText.text = npc.npcJob;
         npcDialogueText.Key = npc.GetDialoguesLists(Gamemanager.Instance.phase)[npcDialogueIndex];
         npcDialogueText.UpdateText();
         npcArtwork.sprite = npc.npcArtwork;
@@ -194,7 +192,6 @@ public class NPCManager : MonoBehaviour
 
         npc = specialNPC[specialNPCCurrent];
         npcNameText.text = npc.npcName;
-        npcJobText.text = npc.npcJob;
         npcDialogueText.Key = npc.GetDialoguesLists(Gamemanager.Instance.phase)[npcDialogueIndex];
         npcDialogueText.UpdateText();
         npcArtwork.sprite = npc.npcArtwork;
@@ -225,7 +222,6 @@ public class NPCManager : MonoBehaviour
     {
         npc = easterEggNPC[easterEggNPCCurrent];
         npcNameText.text = npc.npcName;
-        npcJobText.text = npc.npcJob;
         npcDialogueText.Key = npc.GetDialoguesLists(Gamemanager.Instance.phase)[npcDialogueIndex];
         npcDialogueText.UpdateText();
         npcArtwork.sprite = npc.npcArtwork;

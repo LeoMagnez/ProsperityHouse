@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b117fb6529374799bb654f2af9a1b, type: 3}
   m_Name: NPC_Constance
   m_EditorClassIdentifier: 
-  npcName: Constance
+  npcName: Constance - Babyminder
   npcJob: Baby-minder
   npcDialoguePhase1:
-  - default_text
   - 0_dialogue_conrad1
   - 0_dialogue_conrad2
   - 0_dialogue_conrad3
-  npcDialoguePhase2:
   - default_text
+  npcDialoguePhase2:
   - 1_dialogue_conrad1
   - 1_dialogue_conrad2
   - 1_dialogue_conrad3
+  - default_text
   npcDialoguePhase3:
   - default_text
   npcDialoguePhase4:

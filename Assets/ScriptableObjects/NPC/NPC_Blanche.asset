@@ -12,18 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b117fb6529374799bb654f2af9a1b, type: 3}
   m_Name: NPC_Blanche
   m_EditorClassIdentifier: 
-  npcName: Blanche
+  npcName: Blanche - Innkeeper
   npcJob: Innkeeper
   npcDialoguePhase1:
+  - 0_dialogue_blanche1
+  - 0_dialogue_blanche2
+  - 0_dialogue_blanche3
+  - 0_dialogue_blanche4
+  - 0_dialogue_blanche5
   - default_text
-  - 0_dialogue_conrad1
-  - 0_dialogue_conrad2
-  - 0_dialogue_conrad3
   npcDialoguePhase2:
+  - 1_dialogue_blanche1
+  - 1_dialogue_blanche2
+  - 1_dialogue_blanche3
+  - 1_dialogue_blanche4
   - default_text
-  - 1_dialogue_conrad1
-  - 1_dialogue_conrad2
-  - 1_dialogue_conrad3
   npcDialoguePhase3:
   - default_text
   npcDialoguePhase4:

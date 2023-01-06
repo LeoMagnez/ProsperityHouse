@@ -16,14 +16,7 @@ MonoBehaviour:
   npcJob: 
   npcDialoguePhase1:
   - default_text
-  - 0_dialogue_conrad1
-  - 0_dialogue_conrad2
-  - 0_dialogue_conrad3
-  npcDialoguePhase2:
-  - default_text
-  - 1_dialogue_conrad1
-  - 1_dialogue_conrad2
-  - 1_dialogue_conrad3
+  npcDialoguePhase2: []
   npcDialoguePhase3:
   - default_text
   npcDialoguePhase4:

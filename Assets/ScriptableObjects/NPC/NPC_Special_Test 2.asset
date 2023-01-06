@@ -15,15 +15,15 @@ MonoBehaviour:
   npcName: Test
   npcJob: Test
   npcDialoguePhase1:
-  - default_text
   - 0_dialogue_conrad1
   - 0_dialogue_conrad2
   - 0_dialogue_conrad3
-  npcDialoguePhase2:
   - default_text
+  npcDialoguePhase2:
   - 1_dialogue_conrad1
   - 1_dialogue_conrad2
   - 1_dialogue_conrad3
+  - default_text
   npcDialoguePhase3:
   - default_text
   npcDialoguePhase4:
