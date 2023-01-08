@@ -51,12 +51,16 @@ public class Gamemanager : MonoBehaviour
     public NPCSliding npcSliding;
     public TimeAccelerator adManager;
     public ParticleSystem upgradeParticles;
+    public GameObject languageChooser;
+    public LocalizedText quitSeller;
+    public LocalizedText sellerName;
     
 
     [Header("Currency")]
     public float money = 500f;
     public TextMeshProUGUI moneyText;
-    public TextMeshProUGUI upgradeText;
+    public TextMeshProUGUI upgradeCostText;
+    public LocalizedText upgradeText;
     public float upgradeCost;
     public Button upgradeButton;
 
@@ -127,7 +131,10 @@ public class Gamemanager : MonoBehaviour
     void Update()
     {
         moneyText.text = money.ToString();
-        upgradeText.text = "Upgrade - " + upgradeCost.ToString();
+        upgradeCostText.text = " - " + upgradeCost.ToString();
+        upgradeText.UpdateText();
+        quitSeller.UpdateText();
+        sellerName.UpdateText();
         CurrencyModify();
 
 
@@ -396,6 +403,15 @@ public class Gamemanager : MonoBehaviour
         {
             upgradeButton.interactable = true;
         }
+    }
+    #endregion
+
+    /*============================ LANGUAGE ============================*/
+    #region LANGUAGE
+
+    public void ChangeLanguage()
+    {
+        languageChooser.SetActive(false);
     }
     #endregion
 

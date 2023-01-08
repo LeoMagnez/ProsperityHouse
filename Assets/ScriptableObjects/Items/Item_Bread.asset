@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13cd0da3b49372748bf6a0749581b8a9, type: 3}
   m_Name: Item_Bread
   m_EditorClassIdentifier: 
-  itemName: Bread
+  itemName: item_bread
   itemArtwork: {fileID: 21300000, guid: 7cc2aa38508cd344ea166948279f8240, type: 3}
   itemBuyingPrice: 5
   itemSellingPrice: 10

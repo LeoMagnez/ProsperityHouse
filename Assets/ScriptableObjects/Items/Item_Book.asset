@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13cd0da3b49372748bf6a0749581b8a9, type: 3}
   m_Name: Item_Book
   m_EditorClassIdentifier: 
-  itemName: Book
+  itemName: item_book
   itemArtwork: {fileID: 21300000, guid: a3ccf9eb378155646a5b429fd9741d32, type: 3}
   itemBuyingPrice: 40
   itemSellingPrice: 50

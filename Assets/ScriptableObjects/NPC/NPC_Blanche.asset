@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b117fb6529374799bb654f2af9a1b, type: 3}
   m_Name: NPC_Blanche
   m_EditorClassIdentifier: 
-  npcName: Blanche - Innkeeper
+  npcName: blanche_name
   npcJob: Innkeeper
   npcDialoguePhase1:
   - 0_dialogue_blanche1

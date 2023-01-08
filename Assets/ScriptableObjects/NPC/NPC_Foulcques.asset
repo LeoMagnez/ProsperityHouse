@@ -12,19 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b117fb6529374799bb654f2af9a1b, type: 3}
   m_Name: NPC_Foulcques
   m_EditorClassIdentifier: 
-  npcName: Foulques - Winemaker
+  npcName: foulcques_name
   npcJob: Winemaker
   npcDialoguePhase1:
-  - 0_dialogue_conrad1
-  - 0_dialogue_conrad2
-  - 0_dialogue_conrad3
   - default_text
   npcDialoguePhase2:
-  - 1_dialogue_conrad1
-  - 1_dialogue_conrad2
-  - 1_dialogue_conrad3
+  - 0_dialogue_foulcques1
+  - 0_dialogue_foulcques2
+  - 0_dialogue_foulcques3
+  - 0_dialogue_foulcques4
+  - 0_dialogue_foulcques5
   - default_text
   npcDialoguePhase3:
+  - 1_dialogue_foulcques1
+  - 1_dialogue_foulcques2
+  - 1_dialogue_foulcques3
+  - 1_dialogue_foulcques4
+  - 1_dialogue_foulcques5
+  - 1_dialogue_foulcques6
   - default_text
   npcDialoguePhase4:
   - default_text

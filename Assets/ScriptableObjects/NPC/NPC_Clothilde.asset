@@ -12,21 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b117fb6529374799bb654f2af9a1b, type: 3}
   m_Name: NPC_Clothilde
   m_EditorClassIdentifier: 
-  npcName: Clothilde - Cooker
+  npcName: clothilde_name
   npcJob: Cooker
   npcDialoguePhase1:
-  - 0_dialogue_conrad1
-  - 0_dialogue_conrad2
-  - 0_dialogue_conrad3
   - default_text
   npcDialoguePhase2:
-  - 1_dialogue_conrad1
-  - 1_dialogue_conrad2
-  - 1_dialogue_conrad3
   - default_text
   npcDialoguePhase3:
+  - 0_dialogue_clothilde1
+  - 0_dialogue_clothilde2
+  - 0_dialogue_clothilde3
+  - 0_dialogue_clothilde4
+  - 0_dialogue_clothilde5
   - default_text
   npcDialoguePhase4:
+  - 1_dialogue_clothilde1
+  - 1_dialogue_clothilde2
+  - 1_dialogue_clothilde3
   - default_text
   searchedItems:
   - {fileID: 11400000, guid: 7c5df70efee0ca34a9494683e43bbe40, type: 2}

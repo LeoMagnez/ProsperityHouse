@@ -43,7 +43,7 @@ public class ChangeLanguage : MonoBehaviour
         {
             yield return null;//wait
         }
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//reload scene
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//reload scene
 
     }
 }
