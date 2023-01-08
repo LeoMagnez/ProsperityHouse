@@ -36,6 +36,7 @@ public class SellerSliding : MonoBehaviour
     {
         if(open)
         {
+            gm.notification.SetActive(false);
             gm.canStartTimer = false;
             gm.canStartNPCTimer = false;
             gm.backgroundChanging.canChangeTime = false;

@@ -106,9 +106,14 @@ public class NPCManager : MonoBehaviour
             gm.npcTimer -= 2 * Time.deltaTime;
         }
 
-        if (gm.npcTimer <= 0)
+        if (gm.npcTimer <= 0 && !gm.sellerPanelSliding.open)
         {
             gm.isNotificationActive = true;
+        }
+
+        if (gm.sellerPanelSliding.open)
+        {
+            gm.isNotificationActive = false;
         }
         if (gm.phase == 3 && gm.counter == 3)
         {

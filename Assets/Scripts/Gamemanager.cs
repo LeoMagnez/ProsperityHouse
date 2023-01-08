@@ -54,6 +54,7 @@ public class Gamemanager : MonoBehaviour
     public GameObject languageChooser;
     public LocalizedText quitSeller;
     public LocalizedText sellerName;
+    public AudioManager audioManager;
     
 
     [Header("Currency")]

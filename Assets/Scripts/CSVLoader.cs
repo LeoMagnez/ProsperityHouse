@@ -1,8 +1,5 @@
-using JetBrains.Annotations;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 
 /*
@@ -15,16 +12,18 @@ public class CSVLoader
     private string[] csvFile; //array of all strings in file
 
     //characters to split strings
-    //private char lineSeparator = '\n';
+    private char lineSeparator = '\n';
     private char surround = '"';
-    private string[] fieldSeparator = {"\",\""};
+    private string[] fieldSeparator = { "\",\"" };
 
     // Start is called before the first frame update
 
     public void LoadCSV()//loads the csv
     {
-        string path = Path.Combine(Application.streamingAssetsPath, "Language.csv");//finds the asset path
-        csvFile = File.ReadAllLines(path);
+        TextAsset path = Resources.Load<TextAsset>("Language");//finds the asset path
+        //Debug.Log(path.ToString().Split("\n"));
+        //csvFile = Resources.Load("glass") as string[];
+        csvFile = path.ToString().Split(lineSeparator);
 
     }
 
@@ -33,21 +32,22 @@ public class CSVLoader
         int languagesDetected = 0;
         string[] lines = csvFile;
         string[] headers = lines[0].Split(fieldSeparator, StringSplitOptions.None);
-        string[] result = new string[headers.Length-1];
+        string[] result = new string[headers.Length - 1];
 
         for (int i = 1; i < headers.Length; i++)
         {
-            headers[i] = headers[i].TrimStart(' ',surround);
+            headers[i] = headers[i].TrimStart(' ', surround);
+            headers[i] = headers[i].Replace("\"", "");
             headers[i] = headers[i].TrimEnd(surround);
-            result[i-1] = headers[i];
+            result[i - 1] = headers[i];
             languagesDetected++;
-            
+
         }
         //Debug.Log(languagesDetected + " CSVs Detected");
         return result;
     }
 
-    public Dictionary<string,string> GetDictionaryValues(int languageIndex) //return a dictionary of the csv languages values
+    public Dictionary<string, string> GetDictionaryValues(int languageIndex) //return a dictionary of the csv languages values
     {
         int successfulImports = 0;
         Dictionary<string, string> dictionary = new Dictionary<string, string>();
@@ -55,16 +55,19 @@ public class CSVLoader
 
         for (int i = 1; i < lines.Length; i++)//formats all lines
         {
+
             string line = lines[i];
             string[] fields = line.Split(fieldSeparator, StringSplitOptions.None);
             for (int j = 0; j < fields.Length; j++)
             {
+                Debug.Log(fields[j]);
                 fields[j] = fields[j].TrimStart(' ', surround);
+                fields[j] = fields[j].Replace("\"", "");
                 fields[j] = fields[j].TrimEnd(surround);
-                
-                
+                Debug.Log(fields[j]);
+
             }
-            dictionary.Add(fields[0], fields[languageIndex+1]);//adds line to Dictionary
+            dictionary.Add(fields[0], fields[languageIndex + 1]);//adds line to Dictionary
             successfulImports++;
 
         }
