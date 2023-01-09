@@ -3864,7 +3864,7 @@ MonoBehaviour:
   eveningColor: {r: 0.6415094, g: 0.19212285, b: 0, a: 1}
   nightColor: {r: 0, g: 0.10285484, b: 0.8679245, a: 1}
   canChangeTime: 0
-  duration: 22.5
+  duration: 15
   dayLerpSpeed: 0
   nightLerpSpeed: 0
 --- !u!1 &731108430
@@ -20173,7 +20173,7 @@ MonoBehaviour:
   thirdHouse: {fileID: 1144576573}
   fourthHouse: {fileID: 1054769433}
   sellerPanelSliding: {fileID: 67816702}
-  timer: 45
+  timer: 30
   canStartTimer: 1
   notification: {fileID: 843213690}
   isNotificationActive: 0

@@ -38,4 +38,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c737bbcea25af9f47a048291dd97674c, type: 2}
   - {fileID: 11400000, guid: 7c5df70efee0ca34a9494683e43bbe40, type: 2}
   - {fileID: 11400000, guid: c737bbcea25af9f47a048291dd97674c, type: 2}
+  - {fileID: 11400000, guid: e7e6178a695cfa647a17b3f094075a5f, type: 2}
+  - {fileID: 11400000, guid: 76fbcc14d7b49204d9218011055863f2, type: 2}
+  - {fileID: 11400000, guid: bd5c3403924c0f7459ca9e5b39485a8a, type: 2}
+  - {fileID: 11400000, guid: 6d54552edd4bcd94f891afb88e9ee6fa, type: 2}
   npcArtwork: {fileID: 21300000, guid: 89d741f7b11fdae47ae8509503397958, type: 3}
