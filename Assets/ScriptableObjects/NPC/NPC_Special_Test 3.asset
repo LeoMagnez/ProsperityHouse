@@ -12,16 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b117fb6529374799bb654f2af9a1b, type: 3}
   m_Name: NPC_Special_Test 3
   m_EditorClassIdentifier: 
-  npcName: Test
+  npcName: genievre_name
   npcJob: Test
-  npcDialogue:
-  - Vous etes comme les autres...C'est decevant !
-  - Regardez ces idiots qui fuient la ville a cause
-  - de cette soit-disante "Peste" ! Cette maladie n'existe pas !
-  - Oh... Vous partez vous aussi ? Dans ce cas, je vous rachete votre maison.
-  - A moi la richesse !
+  npcDialoguePhase1:
+  - default_text
+  - default_text
+  npcDialoguePhase2:
+  - default_text
+  - default_text
+  npcDialoguePhase3:
+  - default_text
+  - default_text
+  npcDialoguePhase4:
+  - 2_genievre_special1
+  - 2_genievre_special2
+  - 2_genievre_special3
+  - 2_genievre_special4
+  - 2_genievre_special5
+  - default_text
   searchedItems:
   - {fileID: 11400000, guid: fc36ccde3013aac42a10a7b0056c8739, type: 2}
   - {fileID: 11400000, guid: fc36ccde3013aac42a10a7b0056c8739, type: 2}
   - {fileID: 11400000, guid: fc36ccde3013aac42a10a7b0056c8739, type: 2}
-  npcArtwork: {fileID: 0}
+  npcArtwork: {fileID: 21300000, guid: 6ee48a59156c4684783c2bff01f062be, type: 3}

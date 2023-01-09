@@ -12,13 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b117fb6529374799bb654f2af9a1b, type: 3}
   m_Name: NPC_Genievre
   m_EditorClassIdentifier: 
-  npcName: Genievre
+  npcName: genievre_name
   npcJob: Farmer
-  npcDialogue:
-  - Qu'avez-vous en stock aujourd'hui ?
-  - Lorem ipsum 1
-  - Lorem ipsum 2
-  - Lorem ipsum 3
+  npcDialoguePhase1:
+  - default_text
+  - default_text
+  npcDialoguePhase2:
+  - default_text
+  - default_text
+  npcDialoguePhase3:
+  - default_text
+  - default_text
+  npcDialoguePhase4:
+  - default_text
+  - default_text
   searchedItems:
   - {fileID: 11400000, guid: e7e6178a695cfa647a17b3f094075a5f, type: 2}
   - {fileID: 11400000, guid: c447d7c38bc741e4da5593a54895e96b, type: 2}

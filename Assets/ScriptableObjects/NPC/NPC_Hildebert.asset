@@ -12,16 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b117fb6529374799bb654f2af9a1b, type: 3}
   m_Name: NPC_Hildebert
   m_EditorClassIdentifier: 
-  npcName: Hildebert
+  npcName: hildebert_name
   npcJob: Doctor
-  npcDialogue:
-  - Qu'avez-vous en stock aujourd'hui ?
-  - Lorem ipsum 1
-  - Lorem ipsum 2
-  - Lorem ipsum 3
+  npcDialoguePhase1:
+  - default_text
+  npcDialoguePhase2:
+  - default_text
+  npcDialoguePhase3:
+  - 0_dialogue_hildebert1
+  - 0_dialogue_hildebert2
+  - 0_dialogue_hildebert3
+  - 0_dialogue_hildebert4
+  - 0_dialogue_hildebert5
+  - default_text
+  npcDialoguePhase4:
+  - 1_dialogue_hildebert1
+  - 1_dialogue_hildebert2
+  - 1_dialogue_hildebert3
+  - 1_dialogue_hildebert4
+  - default_text
   searchedItems:
   - {fileID: 11400000, guid: 54153e5aa40e91943b19094ae2a0f3f5, type: 2}
   - {fileID: 11400000, guid: 3b4ed6928890fca44a01cec7aedf7a29, type: 2}
   - {fileID: 11400000, guid: 7c5df70efee0ca34a9494683e43bbe40, type: 2}
   - {fileID: 11400000, guid: beaa9c7e7c95d9141bb492f4b1f9aee7, type: 2}
-  npcArtwork: {fileID: 0}
+  - {fileID: 11400000, guid: 3b4ed6928890fca44a01cec7aedf7a29, type: 2}
+  - {fileID: 11400000, guid: beaa9c7e7c95d9141bb492f4b1f9aee7, type: 2}
+  npcArtwork: {fileID: 21300000, guid: 8cc856f5098d945418a444d1d23e2e4b, type: 3}

@@ -12,18 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b117fb6529374799bb654f2af9a1b, type: 3}
   m_Name: NPC_Conrad
   m_EditorClassIdentifier: 
-  npcName: Conrad
+  npcName: conrad_name
   npcJob: Butcher
-  npcDialogue:
-  - Qu'avez-vous en stock aujourd'hui ?
-  - Lorem ipsum 1
-  - Lorem ipsum 2
-  - Lorem ipsum 3
-  - Lorem ipsum 4
-  - Lorem ipsum 5
-  - Lorem ipsum 6
+  npcDialoguePhase1:
+  - 0_dialogue_conrad1
+  - 0_dialogue_conrad2
+  - 0_dialogue_conrad3
+  - 0_dialogue_conrad4
+  - 0_dialogue_conrad5
+  - 0_dialogue_conrad6
+  - default_text
+  npcDialoguePhase2:
+  - 1_dialogue_conrad1
+  - 1_dialogue_conrad2
+  - 1_dialogue_conrad3
+  - 1_dialogue_conrad4
+  - 1_dialogue_conrad5
+  - 1_dialogue_conrad6
+  - default_text
+  npcDialoguePhase3:
+  - default_text
+  npcDialoguePhase4:
+  - default_text
   searchedItems:
   - {fileID: 11400000, guid: 7c5df70efee0ca34a9494683e43bbe40, type: 2}
   - {fileID: 11400000, guid: c447d7c38bc741e4da5593a54895e96b, type: 2}
   - {fileID: 11400000, guid: e7e6178a695cfa647a17b3f094075a5f, type: 2}
-  npcArtwork: {fileID: 0}
+  npcArtwork: {fileID: 21300000, guid: 71326d118e787d14388d0179f30726c8, type: 3}

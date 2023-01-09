@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class SellerSliding : MonoBehaviour
 {
@@ -15,15 +16,27 @@ public class SellerSliding : MonoBehaviour
 
     public NPCManager npcManager;
     public Gamemanager gm;
-    public TextMeshProUGUI dialogueText;
+    public LocalizedText dialogueText;
+    public SellerDialogues dialogueManager;
+    public int sellerDialogueIndex;
+    public int tutorialTextIndex;
+    public Button continueButton;
+    public Button quitButton;
     public TimeAccelerator adManager;
     public bool tutorial;
 
+    public void Start()
+    {
+        tutorial = true;
+        quitButton.interactable = false;
+        continueButton.GetComponent<Button>().enabled = true;
+    }
 
     public void Update()
     {
         if(open)
         {
+            gm.notification.SetActive(false);
             gm.canStartTimer = false;
             gm.canStartNPCTimer = false;
             gm.backgroundChanging.canChangeTime = false;
@@ -54,6 +67,8 @@ public class SellerSliding : MonoBehaviour
     public void ButtonClick()
     {
         open = !open;
+        sellerDialogueIndex = 0;
+        continueButton.interactable = true;
         gm.backgroundChanging.canChangeTime = true;
         if(gm.timer <= 0)
         {
@@ -71,25 +86,42 @@ public class SellerSliding : MonoBehaviour
     {
         if (tutorial)
         {
-            dialogueText.text = "Tu peux m'acheter des marchandises pour les revendre plus cher à tes clients !";
+            dialogueText.Key = dialogueManager.GetTutorialText()[tutorialTextIndex];
+            dialogueText.UpdateText();
         }
         else
         {
-            switch (gm.phase)
+            dialogueText.Key = dialogueManager.GetSellerDialogues(Gamemanager.Instance.phase)[sellerDialogueIndex];
+            dialogueText.UpdateText();
+        }
+
+
+    }
+
+
+
+    public void ContinueSellerDialogue()
+    {
+        if (tutorial)
+        {
+            tutorialTextIndex += 1;
+            if (tutorialTextIndex == dialogueManager.GetTutorialText().Length - 1)
             {
-                case 0:
-                    dialogueText.text = "Que veux-tu acheter aujourd'hui ?";
-                    break;
-                case 1:
-                    dialogueText.text = "Dialogue 2";
-                    break;
-                case 2:
-                    dialogueText.text = "Dialogue 3";
-                    break;
-                case 3:
-                    dialogueText.text = "Dialogue 4";
-                    break;
+                quitButton.interactable = true;
+                continueButton.interactable = false;
             }
+            SellerDialogues();
+        }
+
+        else
+        {
+            sellerDialogueIndex += 1;
+            if (sellerDialogueIndex == dialogueManager.GetSellerDialogues(Gamemanager.Instance.phase).Length - 1)
+            {
+                quitButton.interactable=true;
+                continueButton.interactable = false;
+            }
+            SellerDialogues();
         }
 
     }

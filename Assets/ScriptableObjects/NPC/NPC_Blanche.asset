@@ -12,14 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b117fb6529374799bb654f2af9a1b, type: 3}
   m_Name: NPC_Blanche
   m_EditorClassIdentifier: 
-  npcName: Blanche
+  npcName: blanche_name
   npcJob: Innkeeper
-  npcDialogue:
-  - Qu'avez-vous en stock aujourd'hui ?
-  - Lorem ipsum 1
-  - Lorem ipsum 2
+  npcDialoguePhase1:
+  - 0_dialogue_blanche1
+  - 0_dialogue_blanche2
+  - 0_dialogue_blanche3
+  - 0_dialogue_blanche4
+  - 0_dialogue_blanche5
+  - default_text
+  npcDialoguePhase2:
+  - 1_dialogue_blanche1
+  - 1_dialogue_blanche2
+  - 1_dialogue_blanche3
+  - 1_dialogue_blanche4
+  - default_text
+  npcDialoguePhase3:
+  - default_text
+  npcDialoguePhase4:
+  - default_text
   searchedItems:
   - {fileID: 11400000, guid: 76fbcc14d7b49204d9218011055863f2, type: 2}
   - {fileID: 11400000, guid: c447d7c38bc741e4da5593a54895e96b, type: 2}
   - {fileID: 11400000, guid: e7e6178a695cfa647a17b3f094075a5f, type: 2}
-  npcArtwork: {fileID: 0}
+  npcArtwork: {fileID: 21300000, guid: f87466eb309368246840d8afeab93fed, type: 3}

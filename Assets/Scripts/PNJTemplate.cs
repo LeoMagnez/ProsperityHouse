@@ -7,10 +7,32 @@ public class PNJTemplate : ScriptableObject
 {
     public string npcName;
     public string npcJob;
-    public string[] npcDialogue;
+    public string[] npcDialoguePhase1;
+    public string[] npcDialoguePhase2;
+    public string[] npcDialoguePhase3;
+    public string[] npcDialoguePhase4;
     public ItemTemplate[] searchedItems;
     public Sprite npcArtwork;
-    
+
+
+    public string[] GetDialoguesLists(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                return npcDialoguePhase1;
+            case 1:
+                return npcDialoguePhase2;
+            case 2:
+                return npcDialoguePhase3;
+            case 3:
+                return npcDialoguePhase4;
+            default:
+                return npcDialoguePhase1;
+        }
+
+    }
+
 }
 
 

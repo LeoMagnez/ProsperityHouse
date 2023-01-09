@@ -12,15 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b117fb6529374799bb654f2af9a1b, type: 3}
   m_Name: NPC_Special_Test 2
   m_EditorClassIdentifier: 
-  npcName: Test
+  npcName: genievre_name
   npcJob: Test
-  npcDialogue:
-  - Qu'avez-vous en stock aujourd'hui ?
-  - Lorem ipsum 1
-  - Lorem ipsum 2
-  - Lorem ipsum 3
+  npcDialoguePhase1:
+  - default_text
+  - default_text
+  npcDialoguePhase2:
+  - default_text
+  - default_text
+  npcDialoguePhase3:
+  - 1_genievre_special1
+  - 1_genievre_special2
+  - 1_genievre_special3
+  - 1_genievre_special4
+  - default_text
+  npcDialoguePhase4:
+  - default_text
+  - default_text
   searchedItems:
-  - {fileID: 11400000, guid: 54153e5aa40e91943b19094ae2a0f3f5, type: 2}
+  - {fileID: 11400000, guid: bfac94fa95c4e534387e77e06c0faea9, type: 2}
   - {fileID: 11400000, guid: c447d7c38bc741e4da5593a54895e96b, type: 2}
   - {fileID: 11400000, guid: 7c5df70efee0ca34a9494683e43bbe40, type: 2}
-  npcArtwork: {fileID: 0}
+  - {fileID: 11400000, guid: c737bbcea25af9f47a048291dd97674c, type: 2}
+  - {fileID: 11400000, guid: 54153e5aa40e91943b19094ae2a0f3f5, type: 2}
+  npcArtwork: {fileID: 21300000, guid: 6ee48a59156c4684783c2bff01f062be, type: 3}

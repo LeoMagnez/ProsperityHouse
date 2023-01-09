@@ -12,15 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b117fb6529374799bb654f2af9a1b, type: 3}
   m_Name: NPC_Beaudoin
   m_EditorClassIdentifier: 
-  npcName: Beaudoin
+  npcName: beaudoin_name
   npcJob: Baker
-  npcDialogue:
-  - Qu'avez-vous en stock aujourd'hui ?
-  - Lorem ipsum 1
-  - Lorem ipsum 2
-  - Lorem ipsum 3
+  npcDialoguePhase1:
+  - 0_dialogue_beaudoin1
+  - 0_dialogue_beaudoin2
+  - 0_dialogue_beaudoin3
+  - 0_dialogue_beaudoin4
+  - 0_dialogue_beaudoin5
+  - default_text
+  npcDialoguePhase2:
+  - 1_dialogue_beaudoin1
+  - 1_dialogue_beaudoin2
+  - 1_dialogue_beaudoin3
+  - 1_dialogue_beaudoin4
+  - 1_dialogue_beaudoin5
+  - 1_dialogue_beaudoin6
+  - default_text
+  npcDialoguePhase3:
+  - 2_dialogue_beaudoin1
+  - 2_dialogue_beaudoin2
+  - 2_dialogue_beaudoin3
+  - default_text
+  npcDialoguePhase4:
+  - default_text
   searchedItems:
   - {fileID: 11400000, guid: bfac94fa95c4e534387e77e06c0faea9, type: 2}
   - {fileID: 11400000, guid: e7e6178a695cfa647a17b3f094075a5f, type: 2}
   - {fileID: 11400000, guid: 76fbcc14d7b49204d9218011055863f2, type: 2}
-  npcArtwork: {fileID: 0}
+  npcArtwork: {fileID: 21300000, guid: 7731e74e40d5ba54fbd05132e01fae12, type: 3}

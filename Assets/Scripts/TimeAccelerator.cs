@@ -9,6 +9,9 @@ public class TimeAccelerator : MonoBehaviour
     public GameObject adDisplay;
     public GameObject adPopUp;
     public Slider loadingBar;
+    public LocalizedText adText;
+    public LocalizedText yes_text;
+    public LocalizedText no_text;
     public float adTimer;
     public float maxTimer;
     public bool adRunning;
@@ -62,6 +65,9 @@ public class TimeAccelerator : MonoBehaviour
             gm.backgroundChanging.canChangeTime = false;
             gm.canStartNPCTimer = false;
             adPopUp.SetActive(true);
+            adText.UpdateText();
+            yes_text.UpdateText();
+            no_text.UpdateText();
         }
         else
         {
@@ -73,7 +79,7 @@ public class TimeAccelerator : MonoBehaviour
 
     public IEnumerator TimeAcceleration()
     {
-        yield return new WaitForSeconds(30f);
+        yield return new WaitForSeconds(15f);
 
         hasAdPlayed = true;
         playAd.interactable = false;

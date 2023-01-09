@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13cd0da3b49372748bf6a0749581b8a9, type: 3}
   m_Name: Item_Steak
   m_EditorClassIdentifier: 
-  itemName: Steak
+  itemName: item_meat
   itemArtwork: {fileID: 21300000, guid: d5c0379d363b3584aa871eb038a41350, type: 3}
   itemBuyingPrice: 10
   itemSellingPrice: 20

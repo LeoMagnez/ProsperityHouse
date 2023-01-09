@@ -12,13 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d0b117fb6529374799bb654f2af9a1b, type: 3}
   m_Name: NPC_EasterEgg
   m_EditorClassIdentifier: 
-  npcName: Kaif
+  npcName: easterEgg_name
   npcJob: 
-  npcDialogue:
-  - Qu'avez-vous en stock aujourd'hui ?
-  - Lorem ipsum 1
-  - Lorem ipsum 2
-  - Lorem ipsum 3
+  npcDialoguePhase1:
+  - 0_dialogue_easteregg1
+  - 0_dialogue_easteregg1
+  npcDialoguePhase2:
+  - 0_dialogue_easteregg1
+  - 0_dialogue_easteregg1
+  npcDialoguePhase3:
+  - 0_dialogue_easteregg1
+  - 0_dialogue_easteregg1
+  npcDialoguePhase4:
+  - 0_dialogue_easteregg1
+  - 0_dialogue_easteregg1
   searchedItems:
   - {fileID: 11400000, guid: e7e6178a695cfa647a17b3f094075a5f, type: 2}
   npcArtwork: {fileID: 21300000, guid: 1ebe6396aa476f1449d5d7c360b398f6, type: 3}
