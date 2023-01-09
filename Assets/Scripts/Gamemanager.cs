@@ -378,18 +378,17 @@ public class Gamemanager : MonoBehaviour
 
         if (phase == 1)
         {
-            upgradeCost = 700f;
+            upgradeCost = 350f;
         }
 
         if (phase == 2)
         {
-            upgradeCost = 1500f;
+            upgradeCost = 1000f;
         }
 
         if (phase == 3)
         {
             upgradeButton.gameObject.SetActive(false);
-            upgradeCost = 4500f;
         }
 
     }

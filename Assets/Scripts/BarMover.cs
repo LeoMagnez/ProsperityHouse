@@ -12,6 +12,6 @@ public class BarMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        barRotation.rotation = Quaternion.Lerp(startPos, endPos, gm.timer / 90f);
+        barRotation.rotation = Quaternion.Lerp(startPos, endPos, gm.timer / 45f);
     }
 }

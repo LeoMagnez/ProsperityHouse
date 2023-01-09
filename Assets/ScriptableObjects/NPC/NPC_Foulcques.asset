@@ -37,4 +37,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c447d7c38bc741e4da5593a54895e96b, type: 2}
   - {fileID: 11400000, guid: c737bbcea25af9f47a048291dd97674c, type: 2}
   - {fileID: 11400000, guid: 7c5df70efee0ca34a9494683e43bbe40, type: 2}
+  - {fileID: 11400000, guid: c737bbcea25af9f47a048291dd97674c, type: 2}
   npcArtwork: {fileID: 21300000, guid: 89d741f7b11fdae47ae8509503397958, type: 3}
